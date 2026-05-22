@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subaru BRZ Giveaway — Spirit Works Garage × SIM1Racing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+    --red:#EF4444; --red-d:#991b1b;
+    --bg:#000; --bg2:#0a0a0a; --card:#1a1a1a; --card2:#111; --card3:#0d0d0d;
+    --border:#2a2a2a; --border2:#1a1a1a; --border3:#333;
+    --blue:#60a5fa; --blue-d:#1d4ed8; --green:#22c55e; --green-d:#166534;
+    --gold:#fbbf24; --amber:#d4a017; --bronze:#cd7f32; --silver:#d1d5db;
+    --cond:'Barlow Condensed',sans-serif; --body:'Barlow',sans-serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:#fff;font-family:var(--body);-webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+h1,h2,h3{margin:0;}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:500;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1200px;margin:0 auto;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.nav-brand{font-family:var(--cond);font-weight:900;font-size:1.1em;text-transform:uppercase;letter-spacing:1px;color:#fff;display:flex;align-items:center;gap:9px;}
+.nav-brand .dot{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red);}
+.nav-links{display:flex;gap:8px;flex-wrap:wrap;}
+.nav-links a{font-family:var(--cond);font-weight:800;font-size:0.78em;text-transform:uppercase;letter-spacing:1.5px;color:#888;text-decoration:none;padding:6px 12px;border-radius:6px;transition:color .15s,background .15s;}
+.nav-links a:hover{color:#fff;background:var(--card2);}
+
+/* ── SHARED ── */
+.section{padding:80px 40px;}
+.wrap{max-width:1200px;margin:0 auto;}
+.wrap-md{max-width:1000px;margin:0 auto;}
+.eyebrow{font-family:var(--cond);font-size:0.75em;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
+.h2{font-family:var(--cond);font-size:2.8em;font-weight:900;text-transform:uppercase;color:#fff;line-height:1;}
+.lead{font-family:var(--body);font-size:1em;color:#888;line-height:1.7;}
+.center{text-align:center;}
+.btn{display:inline-block;background:var(--red);color:#fff;padding:14px 36px;border-radius:8px;font-family:var(--cond);font-size:1em;font-weight:800;text-decoration:none;text-transform:uppercase;letter-spacing:1px;border:none;cursor:pointer;transition:filter .15s,transform .1s;}
+.btn:hover{filter:brightness(1.12);}
+.btn:active{transform:scale(.98);}
+.btn-outline{background:transparent;border:2px solid var(--border3);}
+.btn-sm{padding:9px 18px;font-size:0.82em;border-radius:7px;}
+.badge{display:inline-block;background:var(--red);color:#fff;font-family:var(--cond);font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;padding:5px 18px;border-radius:14px;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;}
+
+/* ── HERO ── */
+.hero{padding:120px 40px 80px;background:var(--bg);position:relative;overflow:hidden;}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(239,68,68,0.13) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.05fr 1fr;gap:54px;align-items:center;}
+.hero h1{font-family:var(--cond);font-size:4.6em;font-weight:900;text-transform:uppercase;color:#fff;line-height:0.95;margin:18px 0 20px;}
+.hero h1 .accent{color:var(--red);}
+.hero p{font-family:var(--body);font-size:1.18em;line-height:1.65;color:#b0b0b0;margin:0 0 30px;}
+.hero-cta{display:flex;gap:13px;flex-wrap:wrap;}
+.car-photo{aspect-ratio:16/11;border-radius:16px;overflow:hidden;border:1px solid var(--border);background:linear-gradient(150deg,#160606,#1a1a1a 60%,#0a0a0a);position:relative;}
+.car-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;}
+.ph-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 75%,rgba(239,68,68,0.14),transparent 62%);}
+.ph-ico{font-size:2.6em;margin-bottom:12px;position:relative;}
+.ph-t{font-family:var(--cond);font-weight:900;font-size:1.2em;text-transform:uppercase;letter-spacing:1px;color:#666;position:relative;}
+.ph-s{font-family:var(--body);font-size:0.8em;color:#444;margin-top:6px;max-width:240px;position:relative;}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px;}
+.hero-stat{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;}
+.hero-stat .v{font-family:var(--cond);font-size:1.7em;font-weight:900;color:var(--red);line-height:1;}
+.hero-stat .l{font-family:var(--body);font-size:0.68em;color:#666;text-transform:uppercase;letter-spacing:1px;margin-top:5px;}
+
+/* ── WEEK CARDS ── */
+.week-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.week-card{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:22px 20px;position:relative;overflow:hidden;}
+.week-card .bar{position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);}
+.week-card .wk{font-family:var(--cond);font-size:0.7em;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--red);}
+.week-card .dt{font-family:var(--cond);font-size:1.5em;font-weight:900;color:#fff;text-transform:uppercase;margin:6px 0 2px;line-height:1;}
+.week-card .meta{font-family:var(--body);font-size:0.8em;color:#777;}
+.week-card .trk{font-family:var(--cond);font-size:0.92em;font-weight:800;text-transform:uppercase;color:#bbb;margin-top:12px;letter-spacing:.5px;}
+.week-card .car{font-family:var(--body);font-size:0.74em;color:#555;margin-top:3px;}
+
+/* ── PRIZE LADDER ── */
+.ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+.ladder .pz{background:var(--card2);border:1px solid var(--border);border-radius:9px;padding:12px 10px;text-align:center;}
+.ladder .pz .pos{font-family:var(--cond);font-size:0.78em;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#666;}
+.ladder .pz .ent{font-family:var(--cond);font-size:1.35em;font-weight:900;color:#fff;line-height:1.1;margin-top:3px;}
+.ladder .pz .u{font-family:var(--body);font-size:0.6em;color:#555;text-transform:uppercase;letter-spacing:1px;}
+.ladder .pz.g1{border-color:rgba(251,191,36,0.5);background:linear-gradient(150deg,#1a1405,var(--card2));}
+.ladder .pz.g1 .ent,.ladder .pz.g1 .pos{color:var(--gold);}
+.ladder .pz.g2{border-color:rgba(209,213,219,0.35);}
+.ladder .pz.g2 .ent{color:var(--silver);}
+.ladder .pz.g3{border-color:rgba(205,127,50,0.4);}
+.ladder .pz.g3 .ent{color:var(--bronze);}
+
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;}
+.rule{background:var(--card2);border:1px solid var(--border);border-radius:11px;padding:20px;}
+.rule .pct{font-family:var(--cond);font-size:2em;font-weight:900;line-height:1;}
+.rule .nm{font-family:var(--cond);font-size:0.95em;font-weight:800;text-transform:uppercase;color:#fff;margin:8px 0 6px;}
+.rule .ds{font-family:var(--body);font-size:0.8em;color:#888;line-height:1.55;}
+
+.note{background:linear-gradient(135deg,#160606,#1a1a1a);border:1px solid rgba(239,68,68,0.25);border-radius:12px;padding:22px 24px;margin-top:26px;}
+.note .nt-t{font-family:var(--cond);font-size:0.78em;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
+.note p{font-family:var(--body);font-size:0.9em;color:#b0b0b0;line-height:1.7;margin:0;}
+.note code{background:#000;border:1px solid var(--border);border-radius:4px;padding:1px 6px;color:#ddd;font-size:0.92em;}
+
+/* ── BUILD ── */
+.build-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:46px;align-items:start;}
+.spec-rows{display:flex;flex-direction:column;gap:1px;background:var(--border2);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.spec{display:flex;justify-content:space-between;gap:16px;background:var(--card2);padding:13px 18px;}
+.spec .k{font-family:var(--cond);font-size:0.8em;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#777;}
+.spec .v{font-family:var(--body);font-size:0.9em;color:#e5e5e5;text-align:right;}
+.spec .v.empty{color:#444;font-style:italic;}
+
+/* ── TRACKER ── */
+.tracker-wrap{background:var(--card2);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.tabbar{display:flex;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.tab{flex:1;min-width:130px;padding:15px 10px;background:transparent;border:none;border-bottom:2px solid transparent;color:#666;font-family:var(--cond);font-size:0.82em;font-weight:800;text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:color .15s;}
+.tab.active{background:var(--card);color:#fff;border-bottom-color:var(--red);}
+.panel{padding:26px;display:none;}
+.panel.active{display:block;}
+
+.input-weeks{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.iw{background:var(--card3);border:1px solid var(--border2);border-radius:12px;padding:18px;}
+.iw .hd{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:10px;}
+.iw .hd .w{font-family:var(--cond);font-size:1.1em;font-weight:900;text-transform:uppercase;color:#fff;}
+.iw .hd .d{font-family:var(--body);font-size:0.74em;color:#666;}
+.iw label{display:block;font-family:var(--cond);font-size:0.66em;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#666;margin:0 0 5px;}
+.iw input,.iw textarea{width:100%;background:#000;border:1px solid var(--border);border-radius:8px;color:#fff;font-family:var(--body);font-size:0.9em;padding:10px 12px;outline:none;resize:vertical;}
+.iw textarea{min-height:150px;line-height:1.5;font-size:0.85em;white-space:pre;}
+.iw input:focus,.iw textarea:focus{border-color:var(--red);box-shadow:0 0 0 2px rgba(239,68,68,0.15);}
+.iw .cnt{font-family:var(--body);font-size:0.7em;color:#555;margin-top:6px;}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;align-items:center;}
+.toolbar .spacer{flex:1;}
+
+.wk-result{background:var(--card3);border:1px solid var(--border2);border-radius:12px;overflow:hidden;margin-bottom:16px;}
+.wk-result .rh{padding:14px 20px;border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.wk-result .rh .lbl{font-family:var(--cond);font-size:0.66em;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:var(--red);padding:3px 10px;border-radius:6px;}
+.wk-result .rh .ti{font-family:var(--cond);font-size:1.15em;font-weight:900;text-transform:uppercase;color:#fff;}
+.wk-result .rh .sub{font-family:var(--body);font-size:0.76em;color:#666;}
+.wk-result .rh .stat{margin-left:auto;font-family:var(--body);font-size:0.76em;color:#888;text-align:right;}
+.wk-result .rh .stat b{font-family:var(--cond);color:var(--red);font-size:1.15em;}
+
+table{width:100%;border-collapse:collapse;}
+thead th{font-family:var(--cond);font-size:0.64em;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#555;text-align:left;padding:9px 0;border-bottom:1px solid var(--border);}
+tbody td{padding:9px 0;border-bottom:1px solid var(--border2);font-family:var(--body);font-size:0.84em;color:#ccc;vertical-align:middle;}
+.tbl-pad{padding:6px 20px 14px;}
+.col-r{text-align:right;}
+.col-c{text-align:center;}
+.drv{font-family:var(--cond);font-size:1.05em;font-weight:800;text-transform:uppercase;color:#fff;}
+.tier{font-family:var(--cond);font-weight:900;color:#555;}
+.tier.top{color:var(--red);}
+.win-badge{display:inline-block;font-family:var(--cond);font-size:0.62em;font-weight:800;letter-spacing:0.8px;text-transform:uppercase;padding:2px 8px;border-radius:5px;white-space:nowrap;}
+.ent{font-family:var(--cond);font-size:1.05em;font-weight:900;color:#fff;}
+.ent .base{font-family:var(--body);font-size:0.62em;color:#555;font-weight:400;margin-left:5px;}
+.tag-sim1{background:var(--red);color:#fff;font-family:var(--cond);font-size:0.5em;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:1px 5px;border-radius:3px;margin-left:6px;vertical-align:middle;}
+
+.standings .row{display:flex;align-items:center;gap:14px;padding:11px 16px;border-bottom:1px solid var(--border2);}
+.standings .row:last-child{border-bottom:none;}
+.standings .pos{width:34px;text-align:center;font-family:var(--cond);font-size:1.05em;font-weight:900;color:#555;flex-shrink:0;}
+.standings .nm{flex:1;min-width:0;font-family:var(--cond);font-size:1.05em;font-weight:800;text-transform:uppercase;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.standings .wks{display:flex;gap:5px;flex-shrink:0;}
+.standings .wbox{font-family:var(--cond);font-size:0.62em;font-weight:800;width:30px;text-align:center;padding:3px 0;border-radius:4px;background:#000;border:1px solid var(--border2);color:#555;}
+.standings .wbox.has{color:#fff;border-color:var(--border3);}
+.standings .tot{font-family:var(--cond);font-size:1.25em;font-weight:900;color:var(--red);flex-shrink:0;min-width:78px;text-align:right;}
+.standings .row.top1{background:linear-gradient(90deg,rgba(251,191,36,0.07),transparent);}
+.standings .row.top1 .pos{color:var(--gold);}
+
+.empty-state{text-align:center;padding:40px 20px;border:1px dashed var(--border);border-radius:12px;}
+.empty-state .e1{font-family:var(--cond);font-size:1.1em;font-weight:800;text-transform:uppercase;color:#555;}
+.empty-state .e2{font-family:var(--body);font-size:0.85em;color:#444;margin-top:6px;}
+
+.lookup-bar{display:flex;gap:10px;margin-bottom:22px;}
+.lookup-bar input{flex:1;background:#000;border:1px solid var(--border);border-radius:8px;padding:13px 16px;color:#fff;font-family:var(--body);font-size:0.95em;outline:none;}
+.lookup-bar input:focus{border-color:var(--red);box-shadow:0 0 0 2px rgba(239,68,68,0.15);}
+.driver-card{background:var(--card3);border:1px solid var(--border2);border-radius:12px;padding:22px;}
+.driver-card .dn{font-family:var(--cond);font-size:1.7em;font-weight:900;text-transform:uppercase;color:#fff;}
+.driver-card .grand{font-family:var(--cond);font-size:2.6em;font-weight:900;color:var(--red);line-height:1;}
+.driver-card .grand-l{font-family:var(--body);font-size:0.7em;color:#666;text-transform:uppercase;letter-spacing:1.5px;}
+
+.footer{padding:44px 40px;background:var(--bg2);border-top:1px solid var(--border);text-align:center;}
+.footer .f1{font-family:var(--cond);font-weight:900;text-transform:uppercase;letter-spacing:1px;color:#fff;font-size:1.1em;}
+.footer .f2{font-family:var(--body);font-size:0.8em;color:#555;margin-top:8px;line-height:1.6;}
+
+@media(max-width:900px){
+    .hero-inner,.build-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:3.4em;}
+    .week-grid{grid-template-columns:repeat(2,1fr);}
+    .ladder{grid-template-columns:repeat(3,1fr);}
+    .rules{grid-template-columns:1fr;}
+    .input-weeks{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+    .section{padding:48px 18px;}
+    .hero{padding:40px 18px 50px;}
+    .nav-inner{padding:12px 18px;}
+    .nav-links{display:none;}
+    .h2{font-size:2em;}
+    .hero h1{font-size:2.7em;}
+    .week-grid{grid-template-columns:1fr;}
+    .ladder{grid-template-columns:repeat(2,1fr);}
+    .hero-stats{grid-template-columns:repeat(3,1fr);}
+    .panel{padding:18px 14px;}
+    .tbl-pad{padding:4px 8px 12px;}
+    .standings .wks{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav"><div class="nav-inner">
+    <div class="nav-brand"><span class="dot"></span> BRZ GIVEAWAY</div>
+    <div class="nav-links">
+        <a href="#how">How It Works</a>
+        <a href="#prizes">Prizes</a>
+        <a href="#build">The Build</a>
+        <a href="#tracker">Entry Tracker</a>
+    </div>
+</div></nav>
+
+<!-- ── HERO ── -->
+<header class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+        <div>
+            <span class="badge">Spirit Works Garage × SIM1Racing</span>
+            <h1>SUBARU BRZ<br><span class="accent">GIVEAWAY</span></h1>
+            <p>One month. Four tracks. One <strong style="color:#ddd;">Toyota GT86</strong> every week. Set your fastest lap, finish in the points, and stack <strong style="color:#ddd;">entries</strong> toward the car. The more weeks you podium, the bigger your shot.</p>
+            <div class="hero-cta">
+                <a href="#tracker" class="btn">VIEW THE TRACKER</a>
+                <a href="#how" class="btn btn-outline">HOW IT WORKS</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat"><div class="v">4</div><div class="l">Weeks</div></div>
+                <div class="hero-stat"><div class="v">15</div><div class="l">Winners / Wk</div></div>
+                <div class="hero-stat"><div class="v">10K</div><div class="l">Top Entries</div></div>
+            </div>
+        </div>
+        <div class="car-photo" id="car-photo"></div>
+    </div>
+</header>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="section" id="how" style="background:var(--bg2);">
+    <div class="wrap">
+        <div class="center" style="margin-bottom:40px;">
+            <div class="eyebrow">THE FORMAT</div>
+            <h2 class="h2">How The Giveaway Works</h2>
+            <p class="lead" style="max-width:760px;margin:14px auto 0;">The car lives at the shop for one month. Each week is a fresh track in the same <strong style="color:#ccc;">Toyota GT86</strong>. Post your fastest lap before the week closes — the top finishers earn entries toward the BRZ.</p>
+        </div>
+
+        <div class="week-grid" id="week-cards"></div>
+
+        <div class="note">
+            <div class="nt-t">⚡ Repeat Winners — Why Some Weeks Pay More Than 15</div>
+            <p>Every week, <strong style="color:#fff;">15 unique winners</strong> fill the 15 prize slots at full value. But you can win in more than one week — and repeat wins don't take a slot from a first-timer, they pay <em>on top</em>. So a week can pay more than 15 people.</p>
+            <p style="margin-top:12px;"><strong style="color:#fff;">Example —</strong> in Week 2 the fastest driver already won in Week 1. They collect <code>50% of 1st place = 5,000</code>. The 15 prize slots then go to the next 15 first-time winners, so the Week-2 runner-up (a first-timer) takes the full <code>10,000</code> first-place prize. That week pays <strong style="color:#fff;">16 people</strong>.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── PRIZES ── -->
+<section class="section" id="prizes" style="background:var(--bg);">
+    <div class="wrap-md">
+        <div class="center" style="margin-bottom:36px;">
+            <div class="eyebrow">ENTRIES ON THE LINE</div>
+            <h2 class="h2">Weekly Prize Ladder</h2>
+            <p class="lead" style="max-width:640px;margin:14px auto 0;">Finish in the top 15 each week to earn entries. Prizes are awarded in <strong style="color:#ccc;">entries</strong> — the giveaway's currency.</p>
+        </div>
+        <div class="ladder" id="ladder"></div>
+
+        <div style="margin-top:40px;">
+            <div class="eyebrow center">WIN MORE THAN ONCE</div>
+            <h3 class="h2 center" style="font-size:1.7em;">Repeat-Winner Multipliers</h3>
+            <div class="rules">
+                <div class="rule" style="border-color:rgba(34,197,94,0.3);">
+                    <div class="pct" style="color:var(--green);">100%</div>
+                    <div class="nm">1st Win</div>
+                    <div class="ds">Your first time winning pays the <strong style="color:#ccc;">full prize</strong> for your slot. First-time winners fill all 15 slots.</div>
+                </div>
+                <div class="rule" style="border-color:rgba(251,191,36,0.3);">
+                    <div class="pct" style="color:var(--gold);">50%</div>
+                    <div class="nm">2nd Win</div>
+                    <div class="ds">Win a second week and you collect <strong style="color:#ccc;">half</strong> the prize for where you land — paid on top of the 15 slots.</div>
+                </div>
+                <div class="rule" style="border-color:rgba(239,68,68,0.3);">
+                    <div class="pct" style="color:var(--red);">25%</div>
+                    <div class="nm">3rd & 4th Win</div>
+                    <div class="ds">Your third and fourth wins each pay <strong style="color:#ccc;">a quarter</strong> of the prize for your finishing position.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── THE BUILD ── -->
+<section class="section" id="build" style="background:var(--bg2);">
+    <div class="wrap">
+        <div class="center" style="margin-bottom:40px;">
+            <div class="eyebrow">BY SPIRIT WORKS GARAGE</div>
+            <h2 class="h2">The Build</h2>
+            <p class="lead" style="max-width:720px;margin:14px auto 0;">This isn't a stock car. Spirit Works Garage transformed this Subaru BRZ into something special — and one of you is taking it home.</p>
+        </div>
+        <div class="build-grid">
+            <div class="car-photo" id="build-photo" style="aspect-ratio:4/3;"></div>
+            <div>
+                <div class="spec-rows" id="spec-rows"></div>
+                <p style="font-family:var(--body);font-size:0.78em;color:#555;margin-top:14px;line-height:1.6;">Specs sourced from the Spirit Works Garage build page. To finalize, drop the real values into the <code style="background:#000;border:1px solid var(--border);border-radius:4px;padding:1px 5px;color:#bbb;">BUILD_SPECS</code> config at the top of the page script.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── ENTRY TRACKER ── -->
+<section class="section" id="tracker" style="background:var(--bg);">
+    <div class="wrap">
+        <div class="center" style="margin-bottom:36px;">
+            <div class="eyebrow">LIVE STANDINGS</div>
+            <h2 class="h2">Entry Tracker</h2>
+            <p class="lead" style="max-width:720px;margin:14px auto 0;">Enter each week's finishing order and the tracker applies the repeat-winner rules automatically — per-week payouts, running entry totals, and a driver lookup so anyone can see how many entries they've earned.</p>
+        </div>
+
+        <div class="tracker-wrap">
+            <div class="tabbar">
+                <button class="tab active" data-tab="standings" onclick="setTab('standings')">🏆 Standings</button>
+                <button class="tab" data-tab="weeks" onclick="setTab('weeks')">📋 Weekly Results</button>
+                <button class="tab" data-tab="lookup" onclick="setTab('lookup')">🔍 Driver Lookup</button>
+                <button class="tab" data-tab="enter" onclick="setTab('enter')">✏️ Enter Results</button>
+            </div>
+
+            <!-- STANDINGS -->
+            <div class="panel active" id="panel-standings">
+                <div id="standings-out"></div>
+            </div>
+
+            <!-- WEEKLY RESULTS -->
+            <div class="panel" id="panel-weeks">
+                <div id="weeks-out"></div>
+            </div>
+
+            <!-- LOOKUP -->
+            <div class="panel" id="panel-lookup">
+                <div class="lookup-bar">
+                    <input id="lookup-input" type="text" placeholder="Enter your driver name…" oninput="renderLookup()">
+                    <button class="btn btn-sm" onclick="renderLookup()">SEARCH</button>
+                </div>
+                <div id="lookup-out"></div>
+            </div>
+
+            <!-- ENTER RESULTS -->
+            <div class="panel" id="panel-enter">
+                <div class="toolbar">
+                    <button class="btn btn-sm" onclick="recompute(true)">↻ UPDATE TRACKER</button>
+                    <button class="btn btn-sm btn-outline" onclick="loadSample()">LOAD SAMPLE</button>
+                    <button class="btn btn-sm btn-outline" onclick="clearAll()">CLEAR ALL</button>
+                    <span class="spacer"></span>
+                    <span id="save-status" style="font-family:var(--body);font-size:0.74em;color:#555;"></span>
+                </div>
+                <p style="font-family:var(--body);font-size:0.82em;color:#777;line-height:1.6;margin:0 0 18px;">Paste each week's finishing order — <strong style="color:#bbb;">one driver per line, fastest first</strong>. Leading rank numbers (e.g. <code style="background:#000;border:1px solid var(--border);border-radius:4px;padding:1px 5px;color:#bbb;">1. Name</code>) are stripped automatically. Staff are skipped, and name variations merge via the alias list in the script.</p>
+                <div class="input-weeks" id="input-weeks"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="f1">SUBARU BRZ GIVEAWAY</div>
+    <div class="f2">Spirit Works Garage × SIM1Racing · Toyota GT86 · 4 Weeks · May 7 – June 7<br>Entries are tracked locally in your browser. Update results from the <strong style="color:#888;">Enter Results</strong> tab.</div>
+</footer>
+
+<script>
+/* ════════════════════════════════════════════════════════════════
+   CONFIG — edit these to brand the page
+   ════════════════════════════════════════════════════════════════ */
+const CAR_PHOTO_URL   = '';   // paste hero Subaru BRZ image URL
+const BUILD_PHOTO_URL = '';   // paste a second build/detail photo URL
+
+// Pull these from https://spiritworksgarage.com/pages/build-page
+const BUILD_SPECS = [
+    { k:'Year / Model',    v:'Subaru BRZ' },
+    { k:'Engine',          v:'' },
+    { k:'Power',           v:'' },
+    { k:'Forced Induction',v:'' },
+    { k:'Drivetrain',      v:'' },
+    { k:'Transmission',    v:'' },
+    { k:'Suspension',      v:'' },
+    { k:'Wheels',          v:'' },
+    { k:'Tires',           v:'' },
+    { k:'Brakes',          v:'' },
+    { k:'Exhaust',         v:'' },
+    { k:'Aero / Body',     v:'' },
+    { k:'Interior',        v:'' },
+];
+
+/* ════════════════════════════════════════════════════════════════
+   GIVEAWAY CONSTANTS
+   ════════════════════════════════════════════════════════════════ */
+// Prize ladder in ENTRIES. Index 0 = 1st place.
+const PRIZES = [10000,7500,5000,4000,3500,3000,2500,2000,1500,1000,750,500,300,200,100];
+const SLOTS  = PRIZES.length; // 15 unique winner slots per week
+
+const WEEKS = [
+    { n:1, dates:'May 7 – May 17' },
+    { n:2, dates:'May 18 – May 24' },
+    { n:3, dates:'May 25 – May 31' },
+    { n:4, dates:'Jun 1 – Jun 7' },
+];
+const CAR = 'Toyota GT86';
+
+// 1st win = 100%, 2nd = 50%, 3rd & 4th (and beyond) = 25%
+function multiplierFor(winNumber){
+    if (winNumber <= 1) return 1;
+    if (winNumber === 2) return 0.5;
+    return 0.25;
+}
+
+/* ── Reused from the SIM1Racing qualifiers page so the same driver
+      is recognized across weeks (critical for repeat-win tracking). ── */
+const SIM1_TEAM = ['Jordan Farrell','Jeremy White'];
+
+const STAFF_LIST = [
+    'nicholas hernandez','nick hernandez','nick h',
+    'elias','michael pajaro','xavier ramos','sitay huber',
+    'karena lin','felix lin','jose santiago','benny jimenez'
+];
+
+const NAME_ALIASES = {
+    'nick':'Nicholas Hernandez','nick hernandez':'Nicholas Hernandez','nicholas h':'Nicholas Hernandez',
+    'mike pajaro':'Michael Pajaro','sitay':'Sitay Huber','xavier':'Xavier Ramos','felix':'Felix Lin',
+    'karena':'Karena Lin','jose':'Jose Santiago','benny':'Benny Jimenez',
+    'victor mendez':'Victor Mendez Polanco','victor mendez p':'Victor Mendez Polanco',
+    'victor mendez polanco':'Victor Mendez Polanco','victor m':'Victor Mendez Polanco'
+};
+
+function normalizeName(raw){
+    if(!raw) return '';
+    const trimmed = raw.trim();
+    const lower = trimmed.toLowerCase();
+    if(NAME_ALIASES[lower]) return NAME_ALIASES[lower];
+    return trimmed.replace(/\b\w/g,c=>c.toUpperCase()).replace(/\B\w/g,c=>c.toLowerCase());
+}
+function nameKey(name){ return normalizeName(name).toLowerCase(); }
+function isStaff(name){
+    const k = nameKey(name);
+    return STAFF_LIST.some(s => k===s || k.startsWith(s+' ') || k.endsWith(' '+s) || k===s.split(' ')[0]);
+}
+function isSIM1Team(name){
+    const k = nameKey(name);
+    return SIM1_TEAM.some(t => nameKey(t)===k);
+}
+function fmt(n){ return n.toLocaleString('en-US'); }
+
+/* ════════════════════════════════════════════════════════════════
+   STATE
+   ════════════════════════════════════════════════════════════════ */
+const LS_KEY = 'brzGiveawayTracker.v1';
+let state = { tracks:['','','',''], orders:['','','',''] };
+
+const SAMPLE = {
+    tracks:['Suzuka Circuit','Ebisu Minami','Tsukuba Circuit',''],
+    orders:[
+// Week 1 — 16 drivers, top 15 are first-time winners
+`Jordan Farrell
+Victor Mendez Polanco
+Jonas Acevedo
+Michael McNish
+John Scialdone
+Snorce Z32
+Jack Mitchell
+Otto Munoz
+Junior Vargas
+Hugo Dos Santos
+Alex Schulmann
+Pierce Bruno
+Daniel Hamilton
+Asher Lee
+Brandon Alonzo
+Stephanie Egusquiza`,
+// Week 2 — Jordan + Victor + others repeat; new winners fill the 15 slots
+`Jordan Farrell
+Shane Cook
+Victor Mendez Polanco
+Justin Torrente
+Jonas Acevedo
+Andy Estevez
+Michael McNish
+Rafal Wolosz
+Peter Zamora
+John Scialdone
+David Kim
+Jobee Buenaventura
+Christian Reyes
+Andreas Tedjasukmana
+Donovan Dowdy
+Ryan Mcglynn
+Eric Perez`,
+// Week 3 — several 3rd wins; staff (Nick Hernandez, Sitay, Karena) auto-skipped
+`Victor Mendez Polanco
+Jordan Farrell
+Snorce Z32
+Shane Cook
+Jonas Acevedo
+Nick Hernandez
+Jeremy White
+Andy Estevez
+Justin Torrente
+Sitay Huber
+Stephanie Egusquiza
+Christian Reyes
+Andreas Tedjasukmana
+Karena Lin
+Jobee Buenaventura
+Brennan Isaac
+Samuel Glassett
+Donovan Dowdy
+Eric Perez
+Rafal Wolosz`,
+``]
+};
+
+function loadState(){
+    try{
+        const saved = JSON.parse(localStorage.getItem(LS_KEY));
+        if(saved && saved.orders){ state = saved; return; }
+    }catch(e){}
+    state = JSON.parse(JSON.stringify(SAMPLE)); // first visit → sample data
+}
+function saveState(){
+    try{ localStorage.setItem(LS_KEY, JSON.stringify(state)); }catch(e){}
+    const el = document.getElementById('save-status');
+    if(el){ el.textContent = 'Saved ✓'; setTimeout(()=>{ if(el) el.textContent=''; }, 1800); }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   PARSE + COMPUTE
+   ════════════════════════════════════════════════════════════════ */
+function parseOrder(text){
+    return (text||'').split('\n')
+        .map(line => line.replace(/^\s*\d+\s*[\.\)\-:]?\s+/,'').trim()) // strip leading rank
+        .filter(Boolean);
+}
+
+// Walk a week's finishing order. 15 slots are consumed only by first-time
+// winners (100%). Repeat winners ride the current live slot at 50%/25% and
+// do NOT consume it — so a week can pay more than 15 people. Staff are skipped.
+function computeWeek(order, priorWins){
+    let slot = 0;            // next prize tier to award (slot+1 = finishing position)
+    const seen = new Set();  // guard against a name appearing twice in one week
+    const winners = [];
+    for(const raw of order){
+        if(slot >= SLOTS) break;
+        const key = nameKey(raw);
+        if(!key || seen.has(key)) continue;
+        if(isStaff(raw)) continue;          // staff can't win the car
+        seen.add(key);
+        const winNumber = (priorWins[key]||0) + 1;
+        const mult = multiplierFor(winNumber);
+        const base = PRIZES[slot];
+        const entries = Math.round(base * mult);
+        winners.push({ key, driver:normalizeName(raw), tier:slot+1, winNumber, mult, base, entries });
+        if(winNumber === 1) slot += 1;      // only first-timers consume a slot
+    }
+    return winners;
+}
+
+function computeAll(){
+    const priorWins = {};
+    const weekResults = [];
+    const totals = {}; // key -> { name, total, perWeek:[..] }
+    WEEKS.forEach((_, wi) => {
+        const order = parseOrder(state.orders[wi]);
+        const winners = computeWeek(order, priorWins);
+        winners.forEach(w => {
+            priorWins[w.key] = (priorWins[w.key]||0) + 1;
+            if(!totals[w.key]) totals[w.key] = { name:w.driver, total:0, perWeek:[0,0,0,0] };
+            totals[w.key].total += w.entries;
+            totals[w.key].perWeek[wi] += w.entries;
+        });
+        weekResults.push(winners);
+    });
+    return { weekResults, totals };
+}
+
+/* ════════════════════════════════════════════════════════════════
+   RENDER — static sections
+   ════════════════════════════════════════════════════════════════ */
+function photoPlaceholder(icon, title, sub){
+    return `<div class="ph"><div class="ph-glow"></div>
+        <div class="ph-ico">${icon}</div>
+        <div class="ph-t">${title}</div>
+        <div class="ph-s">${sub}</div></div>`;
+}
+function renderPhotos(){
+    document.getElementById('car-photo').innerHTML = CAR_PHOTO_URL
+        ? `<img src="${CAR_PHOTO_URL}" alt="Subaru BRZ Giveaway car">`
+        : photoPlaceholder('🚗','Car Photo','Drop the Subaru BRZ hero shot into CAR_PHOTO_URL at the top of the script.');
+    document.getElementById('build-photo').innerHTML = BUILD_PHOTO_URL
+        ? `<img src="${BUILD_PHOTO_URL}" alt="Spirit Works Garage build">`
+        : photoPlaceholder('📸','Build Photo','Set BUILD_PHOTO_URL to show a detail / engine-bay shot here.');
+}
+function renderWeekCards(){
+    document.getElementById('week-cards').innerHTML = WEEKS.map(w => `
+        <div class="week-card"><div class="bar"></div>
+            <div class="wk">Week ${w.n}</div>
+            <div class="dt">${w.dates}</div>
+            <div class="meta">New track each week</div>
+            <div class="trk">${state.tracks[w.n-1] || 'Track TBA'}</div>
+            <div class="car">${CAR}</div>
+        </div>`).join('');
+}
+function renderLadder(){
+    const ord = ['1st','2nd','3rd','4th','5th','6th','7th','8th','9th','10th','11th','12th','13th','14th','15th'];
+    document.getElementById('ladder').innerHTML = PRIZES.map((p,i) => `
+        <div class="pz ${i===0?'g1':i===1?'g2':i===2?'g3':''}">
+            <div class="pos">${i<3?['🥇','🥈','🥉'][i]+' ':''}${ord[i]}</div>
+            <div class="ent">${fmt(p)}</div>
+            <div class="u">Entries</div>
+        </div>`).join('');
+}
+function renderBuild(){
+    document.getElementById('spec-rows').innerHTML = BUILD_SPECS.map(s => `
+        <div class="spec"><div class="k">${s.k}</div>
+            <div class="v ${s.v?'':'empty'}">${s.v || 'Add spec'}</div></div>`).join('');
+}
+function renderInputs(){
+    document.getElementById('input-weeks').innerHTML = WEEKS.map((w,i) => `
+        <div class="iw">
+            <div class="hd"><span class="w">Week ${w.n}</span><span class="d">${w.dates}</span></div>
+            <label>Track</label>
+            <input type="text" placeholder="Track name…" value="${(state.tracks[i]||'').replace(/"/g,'&quot;')}"
+                   oninput="state.tracks[${i}]=this.value;scheduleSave();renderWeekCards();">
+            <label style="margin-top:12px;">Finishing Order (fastest first)</label>
+            <textarea placeholder="1. Driver Name&#10;2. Driver Name&#10;…"
+                      oninput="state.orders[${i}]=this.value;updateCount(${i});scheduleSave();">${(state.orders[i]||'')}</textarea>
+            <div class="cnt" id="cnt-${i}"></div>
+        </div>`).join('');
+    WEEKS.forEach((_,i)=>updateCount(i));
+}
+function updateCount(i){
+    const el = document.getElementById('cnt-'+i);
+    if(el) el.textContent = parseOrder(state.orders[i]).length + ' drivers entered';
+}
+
+/* ════════════════════════════════════════════════════════════════
+   RENDER — results
+   ════════════════════════════════════════════════════════════════ */
+function winBadge(winNumber){
+    const map = {1:['1st Win · 100%','#22c55e'],2:['2nd Win · 50%','#fbbf24'],3:['3rd Win · 25%','#fb923c'],4:['4th Win · 25%','#EF4444']};
+    const [txt,col] = map[Math.min(winNumber,4)] || map[4];
+    return `<span class="win-badge" style="background:${col}1f;color:${col};border:1px solid ${col}55;">${txt}</span>`;
+}
+function teamTag(name){ return isSIM1Team(name) ? `<span class="tag-sim1">SIM1</span>` : ''; }
+
+function renderWeeks(data){
+    const out = WEEKS.map((w,wi) => {
+        const winners = data.weekResults[wi];
+        const order = parseOrder(state.orders[wi]);
+        if(!order.length){
+            return `<div class="wk-result"><div class="rh">
+                <span class="lbl">Week ${w.n}</span>
+                <span class="ti">${state.tracks[wi]||'Track TBA'}</span>
+                <span class="sub">${w.dates} · ${CAR}</span></div>
+                <div class="tbl-pad"><div class="empty-state">
+                    <div class="e1">No results entered yet</div>
+                    <div class="e2">Add this week's finishing order in the “Enter Results” tab.</div>
+                </div></div></div>`;
+        }
+        const totalEnt = winners.reduce((s,x)=>s+x.entries,0);
+        const repeats = winners.filter(x=>x.winNumber>1).length;
+        const rows = winners.map(x => `
+            <tr>
+                <td style="width:42px;"><span class="tier ${x.tier<=3?'top':''}">${x.tier<=3?['🥇','🥈','🥉'][x.tier-1]:x.tier}</span></td>
+                <td><span class="drv">${x.driver}</span>${teamTag(x.driver)}</td>
+                <td class="col-c">${winBadge(x.winNumber)}</td>
+                <td class="col-r"><span class="ent">${fmt(x.entries)}${x.mult<1?`<span class="base">${x.mult*100}% of ${fmt(x.base)}</span>`:''}</span></td>
+            </tr>`).join('');
+        return `<div class="wk-result">
+            <div class="rh">
+                <span class="lbl">Week ${w.n}</span>
+                <span class="ti">${state.tracks[wi]||'Track TBA'}</span>
+                <span class="sub">${w.dates} · ${CAR}</span>
+                <span class="stat"><b>${winners.length}</b> winners${repeats?` · ${repeats} repeat`:''}<br>${fmt(totalEnt)} entries paid</span>
+            </div>
+            <div class="tbl-pad"><table>
+                <thead><tr>
+                    <th>Pos</th><th>Driver</th><th class="col-c">Win</th><th class="col-r">Entries</th>
+                </tr></thead>
+                <tbody>${rows}</tbody>
+            </table></div>
+        </div>`;
+    }).join('');
+    document.getElementById('weeks-out').innerHTML = out;
+}
+
+function renderStandings(data){
+    const list = Object.values(data.totals).sort((a,b)=>b.total-a.total);
+    const el = document.getElementById('standings-out');
+    if(!list.length){
+        el.innerHTML = `<div class="empty-state">
+            <div class="e1">No entries yet</div>
+            <div class="e2">Enter weekly results to build the standings.</div></div>`;
+        return;
+    }
+    const grandTotal = list.reduce((s,d)=>s+d.total,0);
+    const head = `<div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px;">
+        <div class="hero-stat" style="flex:1;min-width:120px;"><div class="v">${list.length}</div><div class="l">Drivers Paid</div></div>
+        <div class="hero-stat" style="flex:1;min-width:120px;"><div class="v">${fmt(grandTotal)}</div><div class="l">Total Entries</div></div>
+        <div class="hero-stat" style="flex:1;min-width:120px;"><div class="v">${fmt(list[0].total)}</div><div class="l">Leader's Entries</div></div>
+    </div>`;
+    const rows = list.map((d,i) => {
+        const pos = i<3 ? ['🥇','🥈','🥉'][i] : (i+1);
+        const wks = d.perWeek.map((v,wi)=>`<div class="wbox ${v?'has':''}" title="Week ${wi+1}">${v?fmt(v):'–'}</div>`).join('');
+        return `<div class="row ${i===0?'top1':''}">
+            <div class="pos">${pos}</div>
+            <div class="nm">${d.name}${teamTag(d.name)}</div>
+            <div class="wks">${wks}</div>
+            <div class="tot">${fmt(d.total)}</div>
+        </div>`;
+    }).join('');
+    el.innerHTML = head + `<div class="card standings" style="overflow:hidden;">
+        <div class="row" style="background:var(--card2);">
+            <div class="pos" style="font-size:0.62em;color:#555;">#</div>
+            <div class="nm" style="font-size:0.66em;color:#555;letter-spacing:1.5px;">Driver</div>
+            <div class="wks" style="font-family:var(--cond);font-size:0.6em;color:#555;align-self:center;letter-spacing:1px;">W1&nbsp; W2&nbsp; W3&nbsp; W4</div>
+            <div class="tot" style="font-size:0.62em;color:#555;">Entries</div>
+        </div>${rows}</div>`;
+}
+
+function renderLookup(){
+    const q = (document.getElementById('lookup-input').value||'').trim().toLowerCase();
+    const el = document.getElementById('lookup-out');
+    if(q.length < 2){
+        el.innerHTML = `<div class="empty-state"><div class="e1">Look up your entries</div>
+            <div class="e2">Type a driver name to see their total and weekly breakdown.</div></div>`;
+        return;
+    }
+    const data = computeAll();
+    const matches = Object.values(data.totals).filter(d =>
+        d.name.toLowerCase().includes(q) || nameKey(d.name).includes(q));
+    if(!matches.length){
+        el.innerHTML = `<div class="empty-state"><div class="e1">No entries for “${q}”</div>
+            <div class="e2">This driver hasn't earned entries yet — or check the spelling.</div></div>`;
+        return;
+    }
+    el.innerHTML = matches.sort((a,b)=>b.total-a.total).map(d => {
+        const wkRows = d.perWeek.map((v,wi)=>`
+            <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border2);">
+                <span style="font-family:var(--cond);font-weight:800;text-transform:uppercase;color:${v?'#fff':'#444'};font-size:0.9em;">Week ${wi+1}<span style="font-family:var(--body);font-weight:400;color:#555;font-size:0.8em;margin-left:8px;">${state.tracks[wi]||'TBA'}</span></span>
+                <span style="font-family:var(--cond);font-weight:900;color:${v?'var(--red)':'#444'};">${v?fmt(v):'—'}</span>
+            </div>`).join('');
+        return `<div class="driver-card" style="margin-bottom:14px;">
+            <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
+                <div class="dn">${d.name}${teamTag(d.name)}</div>
+                <div style="text-align:right;"><div class="grand">${fmt(d.total)}</div><div class="grand-l">Total Entries</div></div>
+            </div>${wkRows}</div>`;
+    }).join('');
+}
+
+/* ════════════════════════════════════════════════════════════════
+   ORCHESTRATION
+   ════════════════════════════════════════════════════════════════ */
+let saveTimer=null;
+function scheduleSave(){ clearTimeout(saveTimer); saveTimer=setTimeout(()=>{ saveState(); recompute(false); }, 500); }
+
+function recompute(rerenderInputs){
+    const data = computeAll();
+    renderStandings(data);
+    renderWeeks(data);
+    renderWeekCards();
+    if(document.getElementById('panel-lookup').classList.contains('active')) renderLookup();
+    if(rerenderInputs){ renderInputs(); saveState(); }
+}
+function setTab(tab){
+    document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.tab===tab));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    document.getElementById('panel-'+tab).classList.add('active');
+    if(tab==='lookup') renderLookup();
+}
+function loadSample(){ state = JSON.parse(JSON.stringify(SAMPLE)); saveState(); renderInputs(); recompute(false); renderBuild(); }
+function clearAll(){
+    if(!confirm('Clear all entered results? This cannot be undone.')) return;
+    state = { tracks:['','','',''], orders:['','','',''] };
+    saveState(); renderInputs(); recompute(false);
+}
+
+/* INIT */
+loadState();
+renderPhotos();
+renderLadder();
+renderBuild();
+renderInputs();
+recompute(false);
+</script>
+</body>
+</html>
