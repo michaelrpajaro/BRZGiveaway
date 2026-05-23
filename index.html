@@ -99,7 +99,7 @@ h1,h2,h3{margin:0;}
 .note{background:linear-gradient(135deg,#160606,#1a1a1a);border:1px solid rgba(239,68,68,0.25);border-radius:12px;padding:22px 24px;margin-top:26px;}
 .note .nt-t{font-family:var(--cond);font-size:0.78em;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
 .note p{font-family:var(--body);font-size:0.9em;color:#b0b0b0;line-height:1.7;margin:0;}
-.note code{background:#000;border:1px solid var(--border);border-radius:4px;padding:1px 6px;color:#ddd;font-size:0.92em;}
+.note code{background:transparent;border:none;padding:0;color:var(--red);font-weight:700;font-family:var(--body);font-size:1em;white-space:nowrap;}
 
 /* ── BUILD ── */
 .build-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:46px;align-items:start;}
@@ -119,19 +119,6 @@ h1,h2,h3{margin:0;}
 .tab.active{background:var(--card);color:#fff;border-bottom-color:var(--red);}
 .panel{padding:26px;display:none;}
 .panel.active{display:block;}
-
-.input-weeks{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
-.iw{background:var(--card3);border:1px solid var(--border2);border-radius:12px;padding:18px;}
-.iw .hd{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:10px;}
-.iw .hd .w{font-family:var(--cond);font-size:1.1em;font-weight:900;text-transform:uppercase;color:#fff;}
-.iw .hd .d{font-family:var(--body);font-size:0.74em;color:#666;}
-.iw label{display:block;font-family:var(--cond);font-size:0.66em;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#666;margin:0 0 5px;}
-.iw input,.iw textarea{width:100%;background:#000;border:1px solid var(--border);border-radius:8px;color:#fff;font-family:var(--body);font-size:0.9em;padding:10px 12px;outline:none;resize:vertical;}
-.iw textarea{min-height:150px;line-height:1.5;font-size:0.85em;white-space:pre;}
-.iw input:focus,.iw textarea:focus{border-color:var(--red);box-shadow:0 0 0 2px rgba(239,68,68,0.15);}
-.iw .cnt{font-family:var(--body);font-size:0.7em;color:#555;margin-top:6px;}
-.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;align-items:center;}
-.toolbar .spacer{flex:1;}
 
 .wk-result{background:var(--card3);border:1px solid var(--border2);border-radius:12px;overflow:hidden;margin-bottom:16px;}
 .wk-result .rh{padding:14px 20px;border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
@@ -190,7 +177,6 @@ tbody td{padding:9px 0;border-bottom:1px solid var(--border2);font-family:var(--
     .week-grid{grid-template-columns:repeat(2,1fr);}
     .ladder{grid-template-columns:repeat(3,1fr);}
     .rules{grid-template-columns:1fr;}
-    .input-weeks{grid-template-columns:1fr;}
 }
 @media(max-width:600px){
     .section{padding:48px 18px;}
@@ -332,7 +318,6 @@ tbody td{padding:9px 0;border-bottom:1px solid var(--border2);font-family:var(--
                 <button class="tab active" data-tab="standings" onclick="setTab('standings')">🏆 Standings</button>
                 <button class="tab" data-tab="weeks" onclick="setTab('weeks')">📋 Weekly Results</button>
                 <button class="tab" data-tab="lookup" onclick="setTab('lookup')">🔍 Driver Lookup</button>
-                <button class="tab" data-tab="enter" onclick="setTab('enter')">✏️ Enter Results</button>
             </div>
 
             <!-- STANDINGS -->
@@ -353,26 +338,14 @@ tbody td{padding:9px 0;border-bottom:1px solid var(--border2);font-family:var(--
                 </div>
                 <div id="lookup-out"></div>
             </div>
-
-            <!-- ENTER RESULTS -->
-            <div class="panel" id="panel-enter">
-                <div class="toolbar">
-                    <button class="btn btn-sm" onclick="recompute(true)">↻ UPDATE TRACKER</button>
-                    <button class="btn btn-sm btn-outline" onclick="loadSample()">RELOAD WEEK 1</button>
-                    <button class="btn btn-sm btn-outline" onclick="clearAll()">CLEAR ALL</button>
-                    <span class="spacer"></span>
-                    <span id="save-status" style="font-family:var(--body);font-size:0.74em;color:#555;"></span>
-                </div>
-                <p style="font-family:var(--body);font-size:0.82em;color:#777;line-height:1.6;margin:0 0 18px;">Paste each week's finishing order — <strong style="color:#bbb;">one driver per line, fastest first</strong>. Leading rank numbers (e.g. <code style="background:#000;border:1px solid var(--border);border-radius:4px;padding:1px 5px;color:#bbb;">1. Name</code>) are stripped automatically. Staff are skipped, and name variations merge via the alias list in the script.</p>
-                <div class="input-weeks" id="input-weeks"></div>
-            </div>
         </div>
     </div>
 </section>
 
 <footer class="footer">
     <div class="f1">SUBARU BRZ GIVEAWAY</div>
-    <div class="f2">Spirit Works Garage × SIM1Racing · 4 Weeks · May 7 – June 7<br>Entries are tracked locally in your browser. Update results from the <strong style="color:#888;">Enter Results</strong> tab.</div>
+    <div class="f2">Spirit Works Garage × SIM1Racing · 4 Weeks · May 7 – June 7</div>
+    <a href="https://spiritworksgarage.com/pages/official-rules" target="_blank" rel="noopener" class="btn btn-sm btn-outline" style="margin-top:18px;">VIEW THE OFFICIAL RULES →</a>
 </footer>
 
 <script>
@@ -380,7 +353,7 @@ tbody td{padding:9px 0;border-bottom:1px solid var(--border2);font-family:var(--
    CONFIG — edit these to brand the page
    ════════════════════════════════════════════════════════════════ */
 const CAR_PHOTO_URL   = 'https://static1.squarespace.com/static/675f613ae652273e9723cfd3/t/6a10f8584c7c5a181ca66795/1779497048899/CTA00101.jpg';
-const BUILD_PHOTO_URL = '';   // paste a second build/detail photo URL (optional)
+const BUILD_PHOTO_URL = 'https://static1.squarespace.com/static/675f613ae652273e9723cfd3/t/6a10fd2f9422b530f51ba120/1779498288242/Untitled+design+%2816%29.png';
 
 // The prize: Spirit Works Garage SWG #003. From spiritworksgarage.com/pages/build-page
 const BUILD = {
@@ -455,12 +428,12 @@ function isSIM1Team(name){
 function fmt(n){ return n.toLocaleString('en-US'); }
 
 /* ════════════════════════════════════════════════════════════════
-   STATE
+   POSTED RESULTS
+   Update each week's finishing order below — one driver per line,
+   fastest first. Leading rank numbers are stripped automatically;
+   staff & SIM1 team drivers are excluded from winning.
    ════════════════════════════════════════════════════════════════ */
-const LS_KEY = 'brzGiveawayTracker.v2';
-let state = { tracks:['','','',''], orders:['','','',''] };
-
-const SAMPLE = {
+const state = {
     tracks:['Brands Hatch Indy','Vallelunga Club','Red Bull Ring National','Silverstone International'],
     orders:[
 // Week 1 — Brands Hatch Indy (posted results, finishing order)
@@ -546,18 +519,6 @@ Tara Viggiano`,
 ``]
 };
 
-function loadState(){
-    try{
-        const saved = JSON.parse(localStorage.getItem(LS_KEY));
-        if(saved && saved.orders){ state = saved; return; }
-    }catch(e){}
-    state = JSON.parse(JSON.stringify(SAMPLE)); // first visit → sample data
-}
-function saveState(){
-    try{ localStorage.setItem(LS_KEY, JSON.stringify(state)); }catch(e){}
-    const el = document.getElementById('save-status');
-    if(el){ el.textContent = 'Saved ✓'; setTimeout(()=>{ if(el) el.textContent=''; }, 1800); }
-}
 
 /* ════════════════════════════════════════════════════════════════
    PARSE + COMPUTE
@@ -669,24 +630,6 @@ function renderBuild(){
     document.getElementById('build-highlights').innerHTML =
         BUILD.highlights.map(h => `<li>${h}</li>`).join('');
 }
-function renderInputs(){
-    document.getElementById('input-weeks').innerHTML = WEEKS.map((w,i) => `
-        <div class="iw">
-            <div class="hd"><span class="w">Week ${w.n}</span><span class="d">${w.dates}</span></div>
-            <label>Track</label>
-            <input type="text" placeholder="Track name…" value="${(state.tracks[i]||'').replace(/"/g,'&quot;')}"
-                   oninput="state.tracks[${i}]=this.value;scheduleSave();renderWeekCards();">
-            <label style="margin-top:12px;">Finishing Order (fastest first)</label>
-            <textarea placeholder="1. Driver Name&#10;2. Driver Name&#10;…"
-                      oninput="state.orders[${i}]=this.value;updateCount(${i});scheduleSave();">${(state.orders[i]||'')}</textarea>
-            <div class="cnt" id="cnt-${i}"></div>
-        </div>`).join('');
-    WEEKS.forEach((_,i)=>updateCount(i));
-}
-function updateCount(i){
-    const el = document.getElementById('cnt-'+i);
-    if(el) el.textContent = parseOrder(state.orders[i]).length + ' drivers entered';
-}
 
 /* ════════════════════════════════════════════════════════════════
    RENDER — results
@@ -708,8 +651,8 @@ function renderWeeks(data){
                 <span class="ti">${state.tracks[wi]||'Track TBA'}</span>
                 <span class="sub">${w.dates}</span></div>
                 <div class="tbl-pad"><div class="empty-state">
-                    <div class="e1">No results entered yet</div>
-                    <div class="e2">Add this week's finishing order in the “Enter Results” tab.</div>
+                    <div class="e1">Results pending</div>
+                    <div class="e2">This week's standings will be posted once the week wraps.</div>
                 </div></div></div>`;
         }
         const totalEnt = winners.reduce((s,x)=>s+x.entries,0);
@@ -750,13 +693,13 @@ function renderStandings(data){
     if(!list.length){
         el.innerHTML = `<div class="empty-state">
             <div class="e1">No entries yet</div>
-            <div class="e2">Enter weekly results to build the standings.</div></div>`;
+            <div class="e2">Standings will appear here as each week's results are posted.</div></div>`;
         return;
     }
     const grandTotal = list.reduce((s,d)=>s+d.total,0);
     const head = `<div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px;">
-        <div class="hero-stat" style="flex:1;min-width:120px;"><div class="v">${list.length}</div><div class="l">Drivers Paid</div></div>
-        <div class="hero-stat" style="flex:1;min-width:120px;"><div class="v">${fmt(grandTotal)}</div><div class="l">Total Entries</div></div>
+        <div class="hero-stat" style="flex:1;min-width:120px;"><div class="v">${list.length}</div><div class="l">Unique Winners</div></div>
+        <div class="hero-stat" style="flex:1;min-width:120px;"><div class="v">${fmt(grandTotal)}</div><div class="l">Total Entries Awarded</div></div>
         <div class="hero-stat" style="flex:1;min-width:120px;"><div class="v">${fmt(list[0].total)}</div><div class="l">Leader's Entries</div></div>
     </div>`;
     const rows = list.map((d,i) => {
@@ -803,7 +746,7 @@ function renderLookup(){
         return `<div class="driver-card" style="margin-bottom:14px;">
             <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
                 <div class="dn">${d.name}${teamTag(d.name)}</div>
-                <div style="text-align:right;"><div class="grand">${fmt(d.total)}</div><div class="grand-l">Total Entries</div></div>
+                <div style="text-align:right;"><div class="grand">${fmt(d.total)}</div><div class="grand-l">Total Entries Awarded</div></div>
             </div>${wkRows}</div>`;
     }).join('');
 }
@@ -811,16 +754,12 @@ function renderLookup(){
 /* ════════════════════════════════════════════════════════════════
    ORCHESTRATION
    ════════════════════════════════════════════════════════════════ */
-let saveTimer=null;
-function scheduleSave(){ clearTimeout(saveTimer); saveTimer=setTimeout(()=>{ saveState(); recompute(false); }, 500); }
-
-function recompute(rerenderInputs){
+function recompute(){
     const data = computeAll();
     renderStandings(data);
     renderWeeks(data);
     renderWeekCards();
     if(document.getElementById('panel-lookup').classList.contains('active')) renderLookup();
-    if(rerenderInputs){ renderInputs(); saveState(); }
 }
 function setTab(tab){
     document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.tab===tab));
@@ -828,20 +767,12 @@ function setTab(tab){
     document.getElementById('panel-'+tab).classList.add('active');
     if(tab==='lookup') renderLookup();
 }
-function loadSample(){ state = JSON.parse(JSON.stringify(SAMPLE)); saveState(); renderInputs(); recompute(false); renderBuild(); }
-function clearAll(){
-    if(!confirm('Clear all entered results? This cannot be undone.')) return;
-    state = { tracks:['','','',''], orders:['','','',''] };
-    saveState(); renderInputs(); recompute(false);
-}
 
 /* INIT */
-loadState();
 renderPhotos();
 renderLadder();
 renderBuild();
-renderInputs();
-recompute(false);
+recompute();
 </script>
 </body>
 </html>
