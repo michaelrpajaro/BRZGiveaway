@@ -132,8 +132,18 @@ table{width:100%;border-collapse:collapse;}
 thead th{font-family:var(--cond);font-size:0.64em;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#555;text-align:left;padding:9px 0;border-bottom:1px solid var(--border);}
 tbody td{padding:9px 0;border-bottom:1px solid var(--border2);font-family:var(--body);font-size:0.84em;color:#ccc;vertical-align:middle;}
 .tbl-pad{padding:6px 20px 14px;}
+.tbl-scroll{overflow-x:auto;}
+.tbl-scroll table{min-width:560px;}
 .col-r{text-align:right;}
 .col-c{text-align:center;}
+.col-pos{width:48px;}
+td.lap{font-family:var(--body);font-weight:700;color:#e5e5e5;}
+td.mut,.mut{color:#666;}
+.exc{font-family:var(--cond);font-size:0.66em;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#777;}
+.full-toggle{display:block;width:100%;margin:8px 0 2px;background:var(--card2);border:1px solid var(--border);border-radius:8px;color:#aaa;font-family:var(--cond);font-size:0.76em;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:11px;cursor:pointer;transition:background .15s,color .15s;}
+.full-toggle:hover{background:#161616;color:#fff;}
+.full-table tr.norow{opacity:0.42;}
+.full-table tr.winrow{background:rgba(239,68,68,0.06);}
 .drv{font-family:var(--cond);font-size:1.05em;font-weight:800;text-transform:uppercase;color:#fff;}
 .tier{font-family:var(--cond);font-weight:900;color:#555;}
 .tier.top{color:var(--red);}
@@ -378,11 +388,96 @@ const BUILD = {
 const PRIZES = [10000,7500,5000,4000,3500,3000,2500,2000,1500,1000,750,500,300,200,100];
 const SLOTS  = PRIZES.length; // 15 unique winner slots per week
 
+// Each week holds the full posted leaderboard in finishing order.
+// Row = { driver, laps, lap (best lap), gap }. For a no-time entry use lap:'' .
+// Winners are derived automatically; staff & SIM1 team drivers are excluded.
 const WEEKS = [
-    { n:1, dates:'May 7 – May 17' },
-    { n:2, dates:'May 18 – May 24' },
-    { n:3, dates:'May 25 – May 31' },
-    { n:4, dates:'Jun 1 – Jun 7' },
+    { n:1, dates:'May 7 – May 17', track:'Brands Hatch Indy', results:[
+        { driver:'Jordan Farrell', laps:6, lap:'0:56.956', gap:'+00.000' },
+        { driver:'Victor Mendez', laps:31, lap:'0:57.054', gap:'+00.098' },
+        { driver:'Jeremy White', laps:11, lap:'0:57.206', gap:'+00.250' },
+        { driver:'Nick Hernandez', laps:68, lap:'0:57.338', gap:'+00.382' },
+        { driver:'Shane Cook', laps:233, lap:'0:57.385', gap:'+00.429' },
+        { driver:'Snorce Z32', laps:69, lap:'0:57.520', gap:'+00.564' },
+        { driver:'Jonas Acevedo', laps:23, lap:'0:57.528', gap:'+00.572' },
+        { driver:'Justin Torrente', laps:21, lap:'0:57.941', gap:'+00.985' },
+        { driver:'Ryan Chang', laps:18, lap:'0:57.993', gap:'+01.037' },
+        { driver:'Stephanie Egusquiza', laps:123, lap:'0:58.261', gap:'+01.305' },
+        { driver:'Felix Lin', laps:26, lap:'0:58.560', gap:'+01.604' },
+        { driver:'Elias Melendez Jr.', laps:86, lap:'0:58.595', gap:'+01.639' },
+        { driver:'Shamar Greene', laps:32, lap:'0:58.724', gap:'+01.768' },
+        { driver:'Chaseton Ennis', laps:48, lap:'0:58.917', gap:'+01.961' },
+        { driver:'Jason Junkers', laps:12, lap:'0:58.938', gap:'+01.982' },
+        { driver:'Brandon Alonzo', laps:39, lap:'0:59.040', gap:'+02.084' },
+        { driver:'Andreas Tedjasukmana', laps:151, lap:'0:59.122', gap:'+02.166' },
+        { driver:'Chaws15 Cha', laps:20, lap:'0:59.633', gap:'+02.677' },
+        { driver:'Jarrett Friend', laps:63, lap:'0:59.692', gap:'+02.736' },
+        { driver:'Jose Santiago', laps:18, lap:'1:00.199', gap:'+03.243' },
+        { driver:'Lytel Freeman', laps:25, lap:'1:00.261', gap:'+03.305' },
+        { driver:'Alex Lin', laps:25, lap:'1:00.266', gap:'+03.310' },
+        { driver:'Tom Walton', laps:17, lap:'1:00.274', gap:'+03.318' },
+        { driver:'Anthony Ryan', laps:41, lap:'1:00.875', gap:'+03.919' },
+        { driver:'Danny Garcia', laps:18, lap:'1:01.077', gap:'+04.121' },
+        { driver:'Stuart Stolarz', laps:3, lap:'1:01.118', gap:'+04.162' },
+        { driver:'Cory Lin', laps:39, lap:'1:01.129', gap:'+04.173' },
+        { driver:'Marc r', laps:20, lap:'1:01.206', gap:'+04.250' },
+        { driver:'Justin Lau', laps:18, lap:'1:01.334', gap:'+04.378' },
+        { driver:'Jeremy Nunez', laps:14, lap:'1:01.338', gap:'+04.382' },
+        { driver:'Mike Caldara', laps:3, lap:'1:01.425', gap:'+04.469' },
+        { driver:'Karena Lin', laps:17, lap:'1:01.457', gap:'+04.501' },
+        { driver:'Brian Wang', laps:18, lap:'1:01.488', gap:'+04.532' },
+        { driver:'Nicky Taylor', laps:4, lap:'1:01.547', gap:'+04.591' },
+        { driver:'Andrew Jones', laps:20, lap:'1:01.692', gap:'+04.736' },
+        { driver:'Kurt Wrede', laps:41, lap:'1:01.818', gap:'+04.862' },
+        { driver:'Elijah Estevez', laps:50, lap:'1:01.849', gap:'+04.893' },
+        { driver:'Marco Bucaj', laps:19, lap:'1:01.867', gap:'+04.911' },
+        { driver:'Gautam Bhasin', laps:2, lap:'1:01.968', gap:'+05.012' },
+        { driver:'Nzuki Wagner', laps:21, lap:'1:02.016', gap:'+05.060' },
+        { driver:'Jordy Montenegro', laps:9, lap:'1:02.038', gap:'+05.082' },
+        { driver:'Alex Ma', laps:33, lap:'1:02.216', gap:'+05.260' },
+        { driver:'Francisco Maio', laps:22, lap:'1:02.249', gap:'+05.293' },
+        { driver:'Luis Miguel Ayavaca loja', laps:25, lap:'1:02.545', gap:'+05.589' },
+        { driver:'ethan Wang', laps:10, lap:'1:02.556', gap:'+05.600' },
+        { driver:'Wil U beat me?', laps:17, lap:'1:02.722', gap:'+05.766' },
+        { driver:'Jesse', laps:6, lap:'1:02.820', gap:'+05.864' },
+        { driver:'Caroline Ungar', laps:19, lap:'1:02.968', gap:'+06.012' },
+        { driver:'Tifanny Gavilanes', laps:20, lap:'1:03.016', gap:'+06.060' },
+        { driver:'JAMES m', laps:9, lap:'1:03.066', gap:'+06.110' },
+        { driver:'Nick Ma', laps:35, lap:'1:03.121', gap:'+06.165' },
+        { driver:'Andrew Yoo', laps:33, lap:'1:03.276', gap:'+06.320' },
+        { driver:'Andrea Echeverry', laps:15, lap:'1:03.466', gap:'+06.510' },
+        { driver:'Giovanni Cortes', laps:16, lap:'1:03.790', gap:'+06.834' },
+        { driver:'Mohamed Aly', laps:21, lap:'1:03.798', gap:'+06.842' },
+        { driver:'Ethan_', laps:13, lap:'1:03.867', gap:'+06.911' },
+        { driver:'Kevin Loja', laps:17, lap:'1:04.161', gap:'+07.205' },
+        { driver:'Nathan LeFevre', laps:17, lap:'1:04.188', gap:'+07.232' },
+        { driver:'Sitay Huber', laps:4, lap:'1:04.429', gap:'+07.473' },
+        { driver:'Bryan', laps:12, lap:'1:04.490', gap:'+07.534' },
+        { driver:'Alex Kim', laps:17, lap:'1:05.258', gap:'+08.302' },
+        { driver:'Eric Wang', laps:15, lap:'1:05.438', gap:'+08.482' },
+        { driver:'Zaid Abujumaiza', laps:7, lap:'1:06.297', gap:'+09.341' },
+        { driver:'Emily Lane', laps:18, lap:'1:06.333', gap:'+09.377' },
+        { driver:'Bri Bradley', laps:17, lap:'1:06.519', gap:'+09.563' },
+        { driver:'Kasen Silva', laps:17, lap:'1:06.538', gap:'+09.582' },
+        { driver:'Alex_', laps:12, lap:'1:08.420', gap:'+11.464' },
+        { driver:'JAMES masso', laps:6, lap:'1:08.511', gap:'+11.555' },
+        { driver:'Edisson Ayavaca', laps:22, lap:'1:09.083', gap:'+12.127' },
+        { driver:'Ed Avi', laps:16, lap:'1:10.280', gap:'+13.324' },
+        { driver:'AAISHA KHALIQUE', laps:20, lap:'1:12.825', gap:'+15.869' },
+        { driver:'Dwane Morris', laps:14, lap:'1:13.146', gap:'+16.190' },
+        { driver:'Rajas Kulkarni', laps:14, lap:'1:14.007', gap:'+17.051' },
+        { driver:'Tara Viggiano', laps:14, lap:'1:24.633', gap:'+27.677' },
+        { driver:'Rehan Mahmood', laps:null, lap:'', gap:'' },
+        { driver:'Jay__', laps:null, lap:'', gap:'' },
+        { driver:'Pedro Velez', laps:null, lap:'', gap:'' },
+        { driver:'Jean Mirto', laps:null, lap:'', gap:'' },
+        { driver:'Rowan Mirto', laps:null, lap:'', gap:'' },
+        { driver:'Bryam Marroquin', laps:null, lap:'', gap:'' },
+        { driver:'Danny Paguay', laps:null, lap:'', gap:'' },
+    ]},
+    { n:2, dates:'May 18 – May 24', track:'Vallelunga Club', results:[] },
+    { n:3, dates:'May 25 – May 31', track:'Red Bull Ring National', results:[] },
+    { n:4, dates:'Jun 1 – Jun 7', track:'Silverstone International', results:[] },
 ];
 // 1st win = 100%, 2nd = 50%, 3rd & 4th (and beyond) = 25%
 function multiplierFor(winNumber){
@@ -398,7 +493,8 @@ const SIM1_TEAM = ['Jordan Farrell','Jeremy White'];
 const STAFF_LIST = [
     'nicholas hernandez','nick hernandez','nick h',
     'elias','michael pajaro','xavier ramos','sitay huber',
-    'karena lin','felix lin','jose santiago','benny jimenez'
+    'karena lin','felix lin','jose santiago','benny jimenez',
+    'ryan chang'
 ];
 
 const NAME_ALIASES = {
@@ -427,135 +523,38 @@ function isSIM1Team(name){
 }
 function fmt(n){ return n.toLocaleString('en-US'); }
 
-/* ════════════════════════════════════════════════════════════════
-   POSTED RESULTS
-   Update each week's finishing order below — one driver per line,
-   fastest first. Leading rank numbers are stripped automatically;
-   staff & SIM1 team drivers are excluded from winning.
-   ════════════════════════════════════════════════════════════════ */
-const state = {
-    tracks:['Brands Hatch Indy','Vallelunga Club','Red Bull Ring National','Silverstone International'],
-    orders:[
-// Week 1 — Brands Hatch Indy (posted results, finishing order)
-`Jordan Farrell
-Victor Mendez
-Jeremy White
-Nick Hernandez
-Shane Cook
-Snorce Z32
-Jonas Acevedo
-Justin Torrente
-Ryan Chang
-Stephanie Egusquiza
-Felix Lin
-Elias Melendez Jr.
-Shamar Greene
-Chaseton Ennis
-Jason Junkers
-Brandon Alonzo
-Andreas Tedjasukmana
-Chaws15 Cha
-Jarrett Friend
-Jose Santiago
-Lytel Freeman
-Alex Lin
-Tom Walton
-Anthony Ryan
-Danny Garcia
-Stuart Stolarz
-Cory Lin
-Marc r
-Justin Lau
-Jeremy Nunez
-Mike Caldara
-Karena Lin
-Brian Wang
-Nicky Taylor
-Andrew Jones
-Kurt Wrede
-Elijah Estevez
-Marco Bucaj
-Gautam Bhasin
-Nzuki Wagner
-Jordy Montenegro
-Alex Ma
-Francisco Maio
-Luis Miguel Ayavaca loja
-ethan Wang
-Wil U beat me?
-Jesse
-Caroline Ungar
-Tifanny Gavilanes
-JAMES m
-Nick Ma
-Andrew Yoo
-Andrea Echeverry
-Giovanni Cortes
-Mohamed Aly
-Ethan_
-Kevin Loja
-Nathan LeFevre
-Sitay Huber
-Bryan
-Alex Kim
-Eric Wang
-Zaid Abujumaiza
-Emily Lane
-Bri Bradley
-Kasen Silva
-Alex_
-JAMES masso
-Edisson Ayavaca
-Ed Avi
-AAISHA KHALIQUE
-Dwane Morris
-Rajas Kulkarni
-Tara Viggiano`,
-// Week 2 — Vallelunga Club (pending)
-``,
-// Week 3 — Red Bull Ring National (pending)
-``,
-// Week 4 — Silverstone International (pending)
-``]
-};
 
 
 /* ════════════════════════════════════════════════════════════════
    PARSE + COMPUTE
    ════════════════════════════════════════════════════════════════ */
-function parseOrder(text){
-    return (text||'').split('\n')
-        .map(line => line.replace(/^\s*\d+\s*[\.\)\-:]?\s+/,'').trim()) // strip leading rank
-        .filter(Boolean);
-}
-
-// Walk a week's finishing order. Staff are removed first; remaining drivers
-// keep their finishing positions. The 15 unique slots are filled by first-time
-// winners — repacked to slots 1-15 at 100%. Repeat winners are paid ON TOP, at
-// 50%/25% of the prize for the position they ACTUALLY finished, and only if
-// they finished inside the top 15. So a week can pay more than 15 people.
-function computeWeek(order, priorWins){
-    // Eligible finishers, in order (staff removed, duplicate names dropped)
+// Walk a week's full result rows (in finishing order). Staff & SIM1 team
+// drivers are removed; the rest keep their finishing positions. The 15 unique
+// slots are filled by first-time winners — repacked to slots 1-15 at 100%.
+// Repeat winners are paid ON TOP at 50%/25% of the prize for the position they
+// ACTUALLY finished, and only if inside the top 15. So a week can pay >15.
+function computeWeek(results, priorWins){
+    // Eligible finishers, in order (staff/team removed, duplicate names dropped)
     const eligible = [];
     const seen = new Set();
-    for(const raw of order){
-        const key = nameKey(raw);
-        if(!key || seen.has(key)) continue;
-        if(isStaff(raw) || isSIM1Team(raw)) continue;  // staff & SIM1 team drivers can't win the car
+    results.forEach((r, idx) => {
+        const key = nameKey(r.driver);
+        if(!key || seen.has(key)) return;
+        if(isStaff(r.driver) || isSIM1Team(r.driver)) return;  // can't win the car
         seen.add(key);
-        eligible.push({ key, driver:normalizeName(raw) });
-    }
+        eligible.push({ key, driver:normalizeName(r.driver), rawPos:idx+1, lap:r.lap, laps:r.laps, gap:r.gap });
+    });
 
     let slot = 0;            // next open unique slot for a first-timer (0-indexed)
     const winners = [];
     for(let i = 0; i < eligible.length; i++){
         if(slot >= SLOTS) break;            // all 15 unique slots claimed
-        const { key, driver } = eligible[i];
+        const e = eligible[i];
         const position = i + 1;             // finishing position among eligible
-        const winNumber = (priorWins[key]||0) + 1;
+        const winNumber = (priorWins[e.key]||0) + 1;
         if(winNumber === 1){
             // First-time winner: repacked into the next open slot at 100%
-            winners.push({ key, driver, position, tier:slot+1, winNumber, mult:1,
+            winners.push({ ...e, position, tier:slot+1, winNumber, mult:1,
                            base:PRIZES[slot], entries:PRIZES[slot], repeat:false });
             slot += 1;                      // only first-timers consume a slot
         } else {
@@ -563,7 +562,7 @@ function computeWeek(order, priorWins){
             if(position > SLOTS) continue;  // outside top 15 → no prize, not a win
             const mult = multiplierFor(winNumber);
             const base = PRIZES[position-1];
-            winners.push({ key, driver, position, tier:position, winNumber, mult,
+            winners.push({ ...e, position, tier:position, winNumber, mult,
                            base, entries:Math.round(base*mult), repeat:true });
         }
     }
@@ -574,14 +573,13 @@ function computeAll(){
     const priorWins = {};
     const weekResults = [];
     const totals = {}; // key -> { name, total, perWeek:[..] }
-    WEEKS.forEach((_, wi) => {
-        const order = parseOrder(state.orders[wi]);
-        const winners = computeWeek(order, priorWins);
-        winners.forEach(w => {
-            priorWins[w.key] = (priorWins[w.key]||0) + 1;
-            if(!totals[w.key]) totals[w.key] = { name:w.driver, total:0, perWeek:[0,0,0,0] };
-            totals[w.key].total += w.entries;
-            totals[w.key].perWeek[wi] += w.entries;
+    WEEKS.forEach((w, wi) => {
+        const winners = computeWeek(w.results || [], priorWins);
+        winners.forEach(x => {
+            priorWins[x.key] = (priorWins[x.key]||0) + 1;
+            if(!totals[x.key]) totals[x.key] = { name:x.driver, total:0, perWeek:[0,0,0,0] };
+            totals[x.key].total += x.entries;
+            totals[x.key].perWeek[wi] += x.entries;
         });
         weekResults.push(winners);
     });
@@ -611,7 +609,7 @@ function renderWeekCards(){
             <div class="wk">Week ${w.n}</div>
             <div class="dt">${w.dates}</div>
             <div class="meta">New track each week</div>
-            <div class="trk">${state.tracks[w.n-1] || 'Track TBA'}</div>
+            <div class="trk">${w.track || 'Track TBA'}</div>
         </div>`).join('');
 }
 function renderLadder(){
@@ -641,14 +639,23 @@ function winBadge(winNumber){
 }
 function teamTag(name){ return isSIM1Team(name) ? `<span class="tag-sim1">SIM1</span>` : ''; }
 
+const HEAD = `<thead><tr>
+    <th class="col-pos">Pos</th><th>Driver</th>
+    <th class="col-r">Best Lap</th><th class="col-r">Laps</th><th class="col-r">Gap</th><th class="col-r">Entries</th>
+</tr></thead>`;
+
+function posCell(pos){
+    return `<td class="col-pos"><span class="tier ${pos<=3?'top':''}">${pos<=3?['🥇','🥈','🥉'][pos-1]:'P'+pos}</span></td>`;
+}
+
 function renderWeeks(data){
     const out = WEEKS.map((w,wi) => {
         const winners = data.weekResults[wi];
-        const order = parseOrder(state.orders[wi]);
-        if(!order.length){
+        const results = w.results || [];
+        if(!results.length){
             return `<div class="wk-result"><div class="rh">
                 <span class="lbl">Week ${w.n}</span>
-                <span class="ti">${state.tracks[wi]||'Track TBA'}</span>
+                <span class="ti">${w.track||'Track TBA'}</span>
                 <span class="sub">${w.dates}</span></div>
                 <div class="tbl-pad"><div class="empty-state">
                     <div class="e1">Results pending</div>
@@ -657,34 +664,66 @@ function renderWeeks(data){
         }
         const totalEnt = winners.reduce((s,x)=>s+x.entries,0);
         const repeats = winners.filter(x=>x.winNumber>1).length;
-        const ordn = ['1st','2nd','3rd','4th','5th','6th','7th','8th','9th','10th','11th','12th','13th','14th','15th'];
-        const rows = winners.map(x => {
-            const detail = x.repeat
-                ? `${x.mult*100}% of ${fmt(x.base)} (P${x.position} prize)`
-                : `${ordn[x.tier-1]} slot · full prize`;
+
+        // Winners table (top finishers who earned entries)
+        const wRows = winners.map(x => {
+            const detail = x.repeat ? `${x.mult*100}% × ${fmt(x.base)}` : '';
             return `<tr>
-                <td style="width:48px;"><span class="tier ${x.position<=3?'top':''}">${x.position<=3?['🥇','🥈','🥉'][x.position-1]:'P'+x.position}</span></td>
-                <td><span class="drv">${x.driver}</span>${teamTag(x.driver)}${x.repeat?'<span class="rpt">repeat</span>':''}</td>
-                <td class="col-c">${winBadge(x.winNumber)}</td>
-                <td class="col-r"><div class="ent">${fmt(x.entries)}</div><div class="detail">${detail}</div></td>
+                ${posCell(x.rawPos)}
+                <td><span class="drv">${x.driver}</span> ${winBadge(x.winNumber)}</td>
+                <td class="col-r lap">${x.lap||'—'}</td>
+                <td class="col-r mut">${x.laps!=null?x.laps:'—'}</td>
+                <td class="col-r mut">${x.gap||'—'}</td>
+                <td class="col-r"><div class="ent">${fmt(x.entries)}</div>${detail?`<div class="detail">${detail}</div>`:''}</td>
             </tr>`;
         }).join('');
+
+        // Full field (everyone who finished), with entries / exclusion status
+        const winMap = {}; winners.forEach(x => winMap[x.key] = x);
+        const fullRows = results.map((r,idx) => {
+            const key = nameKey(r.driver);
+            const win = winMap[key];
+            const team = isSIM1Team(r.driver), staff = isStaff(r.driver);
+            const noLap = !r.lap;
+            let ent;
+            if(win) ent = `<span class="ent" style="font-size:0.95em;">${fmt(win.entries)}</span>`;
+            else if(team) ent = `<span class="exc">SIM1 team</span>`;
+            else if(staff) ent = `<span class="exc">Staff</span>`;
+            else ent = `<span class="mut">—</span>`;
+            return `<tr class="${noLap?'norow':''}${win?' winrow':''}">
+                <td class="col-pos mut">${idx+1}</td>
+                <td><span class="drv" style="font-size:0.96em;">${normalizeName(r.driver)}</span>${teamTag(r.driver)}</td>
+                <td class="col-r lap">${noLap?'<span class="mut" style="font-style:italic;">No valid lap</span>':r.lap}</td>
+                <td class="col-r mut">${r.laps!=null?r.laps:'—'}</td>
+                <td class="col-r mut">${noLap?'':r.gap}</td>
+                <td class="col-r">${ent}</td>
+            </tr>`;
+        }).join('');
+
         return `<div class="wk-result">
             <div class="rh">
                 <span class="lbl">Week ${w.n}</span>
-                <span class="ti">${state.tracks[wi]||'Track TBA'}</span>
+                <span class="ti">${w.track||'Track TBA'}</span>
                 <span class="sub">${w.dates}</span>
-                <span class="stat"><b>${winners.length}</b> winners${repeats?` · ${repeats} repeat`:''}<br>${fmt(totalEnt)} entries paid</span>
+                <span class="stat"><b>${winners.length}</b> winners${repeats?` · ${repeats} repeat`:''}<br>${fmt(totalEnt)} entries awarded</span>
             </div>
-            <div class="tbl-pad"><table>
-                <thead><tr>
-                    <th>Finish</th><th>Driver</th><th class="col-c">Win</th><th class="col-r">Entries</th>
-                </tr></thead>
-                <tbody>${rows}</tbody>
-            </table></div>
+            <div class="tbl-pad">
+                <div class="tbl-scroll"><table>${HEAD}<tbody>${wRows}</tbody></table></div>
+                <button class="full-toggle" id="ft-btn-${wi}" onclick="toggleFull(${wi})">VIEW FULL RESULTS (${results.length}) ▾</button>
+                <div class="full-table" id="ft-${wi}" data-count="${results.length}" style="display:none;">
+                    <div class="tbl-scroll"><table>${HEAD}<tbody>${fullRows}</tbody></table></div>
+                </div>
+            </div>
         </div>`;
     }).join('');
     document.getElementById('weeks-out').innerHTML = out;
+}
+
+function toggleFull(wi){
+    const el = document.getElementById('ft-'+wi), btn = document.getElementById('ft-btn-'+wi);
+    const open = el.style.display === 'none';
+    el.style.display = open ? 'block' : 'none';
+    btn.textContent = open ? 'HIDE FULL RESULTS ▴' : `VIEW FULL RESULTS (${el.dataset.count}) ▾`;
 }
 
 function renderStandings(data){
@@ -740,7 +779,7 @@ function renderLookup(){
     el.innerHTML = matches.sort((a,b)=>b.total-a.total).map(d => {
         const wkRows = d.perWeek.map((v,wi)=>`
             <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border2);">
-                <span style="font-family:var(--cond);font-weight:800;text-transform:uppercase;color:${v?'#fff':'#444'};font-size:0.9em;">Week ${wi+1}<span style="font-family:var(--body);font-weight:400;color:#555;font-size:0.8em;margin-left:8px;">${state.tracks[wi]||'TBA'}</span></span>
+                <span style="font-family:var(--cond);font-weight:800;text-transform:uppercase;color:${v?'#fff':'#444'};font-size:0.9em;">Week ${wi+1}<span style="font-family:var(--body);font-weight:400;color:#555;font-size:0.8em;margin-left:8px;">${WEEKS[wi].track||'TBA'}</span></span>
                 <span style="font-family:var(--cond);font-weight:900;color:${v?'var(--red)':'#444'};">${v?fmt(v):'—'}</span>
             </div>`).join('');
         return `<div class="driver-card" style="margin-bottom:14px;">
