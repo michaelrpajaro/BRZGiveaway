@@ -580,7 +580,7 @@ function computeWeek(order, priorWins){
     for(const raw of order){
         const key = nameKey(raw);
         if(!key || seen.has(key)) continue;
-        if(isStaff(raw)) continue;          // staff can't win the car
+        if(isStaff(raw) || isSIM1Team(raw)) continue;  // staff & SIM1 team drivers can't win the car
         seen.add(key);
         eligible.push({ key, driver:normalizeName(raw) });
     }
