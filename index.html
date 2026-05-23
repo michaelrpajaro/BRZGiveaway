@@ -65,17 +65,16 @@ h1,h2,h3{margin:0;}
 .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px;}
 .hero-stat{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;}
 .hero-stat .v{font-family:var(--cond);font-size:1.7em;font-weight:900;color:var(--red);line-height:1;}
-.hero-stat .l{font-family:var(--body);font-size:0.68em;color:#666;text-transform:uppercase;letter-spacing:1px;margin-top:5px;}
+.hero-stat .l{font-family:var(--body);font-size:0.76em;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-top:6px;}
 
 /* ── WEEK CARDS ── */
 .week-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-.week-card{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:22px 20px;position:relative;overflow:hidden;}
+.week-card{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:26px 24px;position:relative;overflow:hidden;}
 .week-card .bar{position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);}
-.week-card .wk{font-family:var(--cond);font-size:0.7em;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--red);}
-.week-card .dt{font-family:var(--cond);font-size:1.5em;font-weight:900;color:#fff;text-transform:uppercase;margin:6px 0 2px;line-height:1;}
-.week-card .meta{font-family:var(--body);font-size:0.8em;color:#777;}
-.week-card .trk{font-family:var(--cond);font-size:0.92em;font-weight:800;text-transform:uppercase;color:#bbb;margin-top:12px;letter-spacing:.5px;}
-.week-card .car{font-family:var(--body);font-size:0.74em;color:#555;margin-top:3px;}
+.week-card .wk{font-family:var(--cond);font-size:0.95em;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--red);}
+.week-card .dt{font-family:var(--body);font-size:1.3em;font-weight:800;color:#fff;margin:9px 0 4px;line-height:1.15;}
+.week-card .meta{font-family:var(--body);font-size:0.95em;color:#999;}
+.week-card .trk{font-family:var(--body);font-size:1.05em;font-weight:700;color:#ddd;margin-top:14px;}
 
 /* ── PRIZE LADDER ── */
 .ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
@@ -115,22 +114,22 @@ h1,h2,h3{margin:0;}
 /* ── TRACKER ── */
 .tracker-wrap{background:var(--card2);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
 .tabbar{display:flex;border-bottom:1px solid var(--border);flex-wrap:wrap;}
-.tab{flex:1;min-width:130px;padding:15px 10px;background:transparent;border:none;border-bottom:2px solid transparent;color:#666;font-family:var(--cond);font-size:0.82em;font-weight:800;text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:color .15s;}
+.tab{flex:1;min-width:130px;padding:16px 10px;background:transparent;border:none;border-bottom:2px solid transparent;color:#888;font-family:var(--body);font-size:0.95em;font-weight:700;letter-spacing:0.2px;cursor:pointer;transition:color .15s;}
 .tab.active{background:var(--card);color:#fff;border-bottom-color:var(--red);}
 .panel{padding:26px;display:none;}
 .panel.active{display:block;}
 
 .wk-result{background:var(--card3);border:1px solid var(--border2);border-radius:12px;overflow:hidden;margin-bottom:16px;}
 .wk-result .rh{padding:14px 20px;border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
-.wk-result .rh .lbl{font-family:var(--cond);font-size:0.66em;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:var(--red);padding:3px 10px;border-radius:6px;}
-.wk-result .rh .ti{font-family:var(--cond);font-size:1.15em;font-weight:900;text-transform:uppercase;color:#fff;}
-.wk-result .rh .sub{font-family:var(--body);font-size:0.76em;color:#666;}
-.wk-result .rh .stat{margin-left:auto;font-family:var(--body);font-size:0.76em;color:#888;text-align:right;}
-.wk-result .rh .stat b{font-family:var(--cond);color:var(--red);font-size:1.15em;}
+.wk-result .rh .lbl{font-family:var(--cond);font-size:0.82em;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#fff;background:var(--red);padding:4px 11px;border-radius:6px;}
+.wk-result .rh .ti{font-family:var(--body);font-size:1.2em;font-weight:800;color:#fff;}
+.wk-result .rh .sub{font-family:var(--body);font-size:0.88em;color:#888;}
+.wk-result .rh .stat{margin-left:auto;font-family:var(--body);font-size:0.86em;color:#999;text-align:right;line-height:1.5;}
+.wk-result .rh .stat b{font-family:var(--body);color:var(--red);font-size:1.2em;font-weight:800;}
 
 table{width:100%;border-collapse:collapse;}
-thead th{font-family:var(--cond);font-size:0.64em;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#555;text-align:left;padding:9px 0;border-bottom:1px solid var(--border);}
-tbody td{padding:9px 0;border-bottom:1px solid var(--border2);font-family:var(--body);font-size:0.84em;color:#ccc;vertical-align:middle;}
+thead th{font-family:var(--body);font-size:0.76em;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;color:#888;text-align:left;padding:11px 0;border-bottom:1px solid var(--border);}
+tbody td{padding:11px 0;border-bottom:1px solid var(--border2);font-family:var(--body);font-size:0.94em;color:#ccc;vertical-align:middle;}
 .tbl-pad{padding:6px 20px 14px;}
 .tbl-scroll{overflow-x:auto;}
 .tbl-scroll table{min-width:560px;}
@@ -139,29 +138,29 @@ tbody td{padding:9px 0;border-bottom:1px solid var(--border2);font-family:var(--
 .col-pos{width:48px;}
 td.lap{font-family:var(--body);font-weight:700;color:#e5e5e5;}
 td.mut,.mut{color:#666;}
-.exc{font-family:var(--cond);font-size:0.66em;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#777;}
-.full-toggle{display:block;width:100%;margin:8px 0 2px;background:var(--card2);border:1px solid var(--border);border-radius:8px;color:#aaa;font-family:var(--cond);font-size:0.76em;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:11px;cursor:pointer;transition:background .15s,color .15s;}
+.exc{font-family:var(--body);font-size:0.78em;font-weight:700;letter-spacing:0.2px;text-transform:uppercase;color:#888;}
+.full-toggle{display:block;width:100%;margin:10px 0 2px;background:var(--card2);border:1px solid var(--border);border-radius:8px;color:#bbb;font-family:var(--body);font-size:0.86em;font-weight:700;letter-spacing:0.4px;text-transform:uppercase;padding:13px;cursor:pointer;transition:background .15s,color .15s;}
 .full-toggle:hover{background:#161616;color:#fff;}
 .full-table tr.norow{opacity:0.42;}
 .full-table tr.winrow{background:rgba(239,68,68,0.06);}
-.drv{font-family:var(--cond);font-size:1.05em;font-weight:800;text-transform:uppercase;color:#fff;}
+.drv{font-family:var(--body);font-size:1em;font-weight:700;color:#fff;}
 .tier{font-family:var(--cond);font-weight:900;color:#555;}
 .tier.top{color:var(--red);}
-.win-badge{display:inline-block;font-family:var(--cond);font-size:0.62em;font-weight:800;letter-spacing:0.8px;text-transform:uppercase;padding:2px 8px;border-radius:5px;white-space:nowrap;}
-.ent{font-family:var(--cond);font-size:1.05em;font-weight:900;color:#fff;}
-.ent .base{font-family:var(--body);font-size:0.62em;color:#555;font-weight:400;margin-left:5px;}
-.detail{font-family:var(--body);font-size:0.66em;color:#666;margin-top:2px;line-height:1.3;}
+.win-badge{display:inline-block;font-family:var(--body);font-size:0.78em;font-weight:700;letter-spacing:0.2px;padding:2px 9px;border-radius:5px;white-space:nowrap;}
+.ent{font-family:var(--body);font-size:1.05em;font-weight:800;color:#fff;}
+.ent .base{font-family:var(--body);font-size:0.66em;color:#555;font-weight:400;margin-left:5px;}
+.detail{font-family:var(--body);font-size:0.78em;color:#888;margin-top:2px;line-height:1.35;}
 .rpt{display:inline-block;font-family:var(--cond);font-size:0.55em;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#888;background:#000;border:1px solid var(--border);border-radius:4px;padding:1px 6px;margin-left:7px;vertical-align:middle;}
 .tag-sim1{background:var(--red);color:#fff;font-family:var(--cond);font-size:0.5em;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:1px 5px;border-radius:3px;margin-left:6px;vertical-align:middle;}
 
-.standings .row{display:flex;align-items:center;gap:14px;padding:11px 16px;border-bottom:1px solid var(--border2);}
+.standings .row{display:flex;align-items:center;gap:14px;padding:13px 16px;border-bottom:1px solid var(--border2);}
 .standings .row:last-child{border-bottom:none;}
-.standings .pos{width:34px;text-align:center;font-family:var(--cond);font-size:1.05em;font-weight:900;color:#555;flex-shrink:0;}
-.standings .nm{flex:1;min-width:0;font-family:var(--cond);font-size:1.05em;font-weight:800;text-transform:uppercase;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.standings .pos{width:36px;text-align:center;font-family:var(--cond);font-size:1.2em;font-weight:900;color:#666;flex-shrink:0;}
+.standings .nm{flex:1;min-width:0;font-family:var(--body);font-size:1.02em;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .standings .wks{display:flex;gap:5px;flex-shrink:0;}
-.standings .wbox{font-family:var(--cond);font-size:0.62em;font-weight:800;width:30px;text-align:center;padding:3px 0;border-radius:4px;background:#000;border:1px solid var(--border2);color:#555;}
+.standings .wbox{font-family:var(--body);font-size:0.74em;font-weight:700;min-width:48px;text-align:center;padding:5px 7px;border-radius:5px;background:#000;border:1px solid var(--border2);color:#666;}
 .standings .wbox.has{color:#fff;border-color:var(--border3);}
-.standings .tot{font-family:var(--cond);font-size:1.25em;font-weight:900;color:var(--red);flex-shrink:0;min-width:78px;text-align:right;}
+.standings .tot{font-family:var(--body);font-size:1.2em;font-weight:800;color:var(--red);flex-shrink:0;min-width:88px;text-align:right;}
 .standings .row.top1{background:linear-gradient(90deg,rgba(251,191,36,0.07),transparent);}
 .standings .row.top1 .pos{color:var(--gold);}
 
@@ -173,9 +172,9 @@ td.mut,.mut{color:#666;}
 .lookup-bar input{flex:1;background:#000;border:1px solid var(--border);border-radius:8px;padding:13px 16px;color:#fff;font-family:var(--body);font-size:0.95em;outline:none;}
 .lookup-bar input:focus{border-color:var(--red);box-shadow:0 0 0 2px rgba(239,68,68,0.15);}
 .driver-card{background:var(--card3);border:1px solid var(--border2);border-radius:12px;padding:22px;}
-.driver-card .dn{font-family:var(--cond);font-size:1.7em;font-weight:900;text-transform:uppercase;color:#fff;}
+.driver-card .dn{font-family:var(--body);font-size:1.5em;font-weight:800;color:#fff;}
 .driver-card .grand{font-family:var(--cond);font-size:2.6em;font-weight:900;color:var(--red);line-height:1;}
-.driver-card .grand-l{font-family:var(--body);font-size:0.7em;color:#666;text-transform:uppercase;letter-spacing:1.5px;}
+.driver-card .grand-l{font-family:var(--body);font-size:0.76em;color:#888;text-transform:uppercase;letter-spacing:0.8px;}
 
 .footer{padding:44px 40px;background:var(--bg2);border-top:1px solid var(--border);text-align:center;}
 .footer .f1{font-family:var(--cond);font-weight:900;text-transform:uppercase;letter-spacing:1px;color:#fff;font-size:1.1em;}
@@ -608,7 +607,7 @@ function renderWeekCards(){
         <div class="week-card"><div class="bar"></div>
             <div class="wk">Week ${w.n}</div>
             <div class="dt">${w.dates}</div>
-            <div class="meta">New track each week</div>
+            <div class="meta">New winners each week</div>
             <div class="trk">${w.track || 'Track TBA'}</div>
         </div>`).join('');
 }
@@ -753,10 +752,10 @@ function renderStandings(data){
     }).join('');
     el.innerHTML = head + `<div class="card standings" style="overflow:hidden;">
         <div class="row" style="background:var(--card2);">
-            <div class="pos" style="font-size:0.62em;color:#555;">#</div>
-            <div class="nm" style="font-size:0.66em;color:#555;letter-spacing:1.5px;">Driver</div>
-            <div class="wks" style="font-family:var(--cond);font-size:0.6em;color:#555;align-self:center;letter-spacing:1px;">W1&nbsp; W2&nbsp; W3&nbsp; W4</div>
-            <div class="tot" style="font-size:0.62em;color:#555;">Entries</div>
+            <div class="pos" style="font-size:0.74em;color:#777;font-family:var(--body);font-weight:700;">#</div>
+            <div class="nm" style="font-size:0.74em;color:#777;letter-spacing:0.5px;">Driver</div>
+            <div class="wks" style="font-family:var(--body);font-size:0.74em;color:#777;align-self:center;font-weight:700;">W1&nbsp;&nbsp; W2&nbsp;&nbsp; W3&nbsp;&nbsp; W4</div>
+            <div class="tot" style="font-size:0.74em;color:#777;font-family:var(--body);font-weight:700;">Entries</div>
         </div>${rows}</div>`;
 }
 
@@ -779,8 +778,8 @@ function renderLookup(){
     el.innerHTML = matches.sort((a,b)=>b.total-a.total).map(d => {
         const wkRows = d.perWeek.map((v,wi)=>`
             <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border2);">
-                <span style="font-family:var(--cond);font-weight:800;text-transform:uppercase;color:${v?'#fff':'#444'};font-size:0.9em;">Week ${wi+1}<span style="font-family:var(--body);font-weight:400;color:#555;font-size:0.8em;margin-left:8px;">${WEEKS[wi].track||'TBA'}</span></span>
-                <span style="font-family:var(--cond);font-weight:900;color:${v?'var(--red)':'#444'};">${v?fmt(v):'—'}</span>
+                <span style="font-family:var(--body);font-weight:700;color:${v?'#fff':'#555'};font-size:0.95em;">Week ${wi+1}<span style="font-family:var(--body);font-weight:400;color:#666;font-size:0.85em;margin-left:8px;">${WEEKS[wi].track||'TBA'}</span></span>
+                <span style="font-family:var(--body);font-weight:800;font-size:1em;color:${v?'var(--red)':'#555'};">${v?fmt(v):'—'}</span>
             </div>`).join('');
         return `<div class="driver-card" style="margin-bottom:14px;">
             <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
