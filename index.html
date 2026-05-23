@@ -201,6 +201,61 @@ td.mut,.mut{color:#666;}
     .tbl-pad{padding:4px 8px 12px;}
     .standings .wks{display:none;}
 }
+
+/* ── MOBILE ONLY: car-first hero + one-screen How/Prizes/Build ── */
+@media(max-width:600px){
+    /* Hero: surface the car photo immediately on load */
+    .hero{padding:14px 16px 26px;}
+    .hero-inner{display:flex;flex-direction:column;gap:16px;}
+    #car-photo{order:-1;}
+    .hero h1{font-size:2.2em;margin:6px 0 10px;}
+    .hero p{font-size:0.95em;margin-bottom:14px;}
+
+    /* Each of these three sections fills one screen, content vertically centered */
+    #how,#prizes,#build{
+        min-height:100vh;min-height:100svh;
+        display:flex;flex-direction:column;justify-content:center;
+        padding:62px 16px 26px;
+    }
+    #how .lead,#prizes .lead,#build .lead{display:none;}
+    #how .h2,#prizes .h2,#build .h2{font-size:1.6em;}
+    #how>.wrap>.center,#prizes>.wrap-md>.center,#build>.wrap>.center{margin-bottom:14px!important;}
+
+    /* How it works — 2x2 cards + compact note */
+    #how .week-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
+    #how .week-card{padding:14px 12px;}
+    #how .week-card .wk{font-size:0.8em;}
+    #how .week-card .dt{font-size:1em;margin:6px 0 3px;}
+    #how .week-card .meta{font-size:0.78em;}
+    #how .week-card .trk{font-size:0.9em;margin-top:9px;}
+    #how .note{padding:13px 15px;margin-top:12px;}
+    #how .note .nt-t{font-size:0.72em;margin-bottom:5px;}
+    #how .note p{font-size:0.78em;line-height:1.5;}
+
+    /* Prize ladder — 3 columns + compact multipliers */
+    #prizes .ladder{grid-template-columns:repeat(3,1fr);gap:6px;}
+    #prizes .ladder .pz{padding:8px 6px;}
+    #prizes .ladder .pz .pos{font-size:0.66em;}
+    #prizes .ladder .pz .ent{font-size:1.05em;}
+    #prizes .ladder .pz .u{font-size:0.55em;}
+    #prizes .wrap-md>div:last-child{margin-top:14px!important;}
+    #prizes h3{font-size:1.3em!important;}
+    #prizes .rules{grid-template-columns:repeat(3,1fr);gap:7px;margin-top:10px;}
+    #prizes .rule{padding:12px 9px;}
+    #prizes .rule .pct{font-size:1.5em;}
+    #prizes .rule .nm{font-size:0.78em;margin:5px 0 4px;}
+    #prizes .rule .ds{font-size:0.68em;line-height:1.4;}
+
+    /* The build — cap photo height, compact highlights */
+    #build .build-grid{gap:16px;}
+    #build #build-photo{aspect-ratio:auto!important;height:160px!important;}
+    #build .build-head .st{font-size:1.3em;margin:3px 0 10px;}
+    #build .build-facts{font-size:0.8em;line-height:1.5;margin-bottom:12px;}
+    #build .mod-card{padding:14px 16px;}
+    #build .mod-h{font-size:0.82em;margin-bottom:8px;padding-bottom:7px;}
+    #build .mod-ul{gap:5px;}
+    #build .mod-ul li{font-size:0.76em;line-height:1.35;}
+}
 </style>
 </head>
 <body>
