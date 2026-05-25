@@ -528,7 +528,35 @@ const WEEKS = [
         { driver:'Bryam Marroquin', laps:null, lap:'', gap:'' },
         { driver:'Danny Paguay', laps:null, lap:'', gap:'' },
     ]},
-    { n:2, dates:'May 18 – May 24', track:'Vallelunga Club', results:[] },
+    { n:2, dates:'May 18 – May 24', track:'Vallelunga Club', results:[
+        { driver:'Jordan Farrell', laps:15, lap:'1:00.427', gap:'+00.000' },
+        { driver:'Dj Hamilton', laps:20, lap:'1:00.502', gap:'+00.075' },
+        { driver:'Victor Mendez', laps:21, lap:'1:00.635', gap:'+00.208' },
+        { driver:'Jonas Acevedo', laps:15, lap:'1:00.791', gap:'+00.364' },
+        { driver:'Shane Cook', laps:109, lap:'1:01.068', gap:'+00.641' },
+        { driver:'Snorce Z32', laps:39, lap:'1:01.199', gap:'+00.772' },
+        { driver:'John Mascarinas', laps:19, lap:'1:01.296', gap:'+00.869' },
+        { driver:'Jack Mitchell', laps:12, lap:'1:01.402', gap:'+00.975' },
+        { driver:'Stephanie Egusquiza', laps:70, lap:'1:01.815', gap:'+01.388' },
+        { driver:'Jobee Buenaventura', laps:40, lap:'1:01.902', gap:'+01.475' },
+        { driver:'Felix Lin', laps:18, lap:'1:02.157', gap:'+01.730' },
+        { driver:'Brandon Alonzo', laps:78, lap:'1:02.311', gap:'+01.884' },
+        { driver:'Sahin Cotca', laps:54, lap:'1:02.848', gap:'+02.421' },
+        { driver:'Sitay Huber', laps:5, lap:'1:03.105', gap:'+02.678' },
+        { driver:'Angelo De Virgilio', laps:56, lap:'1:03.841', gap:'+03.414' },
+        { driver:'Chaws15 Cha', laps:31, lap:'1:03.875', gap:'+03.448' },
+        { driver:'Kyle Scalcione', laps:18, lap:'1:03.906', gap:'+03.479' },
+        { driver:'Karena Lin', laps:13, lap:'1:04.959', gap:'+04.532' },
+        { driver:'Kevin Quintero', laps:23, lap:'1:05.539', gap:'+05.112' },
+        { driver:'Gio Cortes', laps:22, lap:'1:05.628', gap:'+05.201' },
+        { driver:'Frank That', laps:10, lap:'1:07.626', gap:'+07.199' },
+        { driver:'Alejandro Bedoya', laps:19, lap:'1:09.392', gap:'+08.965' },
+        { driver:'Eli Margulies', laps:15, lap:'1:10.187', gap:'+09.760' },
+        { driver:'Alex Tarras', laps:3, lap:'1:28.689', gap:'+28.262' },
+        { driver:'Aedan Mcpartlan', laps:null, lap:'', gap:'' },
+        { driver:'Nicky Taylor', laps:null, lap:'', gap:'' },
+        { driver:'Aryeh Margulies', laps:null, lap:'', gap:'' },
+    ]},
     { n:3, dates:'May 25 – May 31', track:'Red Bull Ring National', results:[] },
     { n:4, dates:'Jun 1 – Jun 7', track:'Silverstone International', results:[] },
 ];
@@ -594,6 +622,7 @@ function computeWeek(results, priorWins){
         const key = nameKey(r.driver);
         if(!key || seen.has(key)) return;
         if(isStaff(r.driver) || isSIM1Team(r.driver)) return;  // can't win the car
+        if(!r.lap) return;                                     // no valid lap → not a classified finisher
         seen.add(key);
         eligible.push({ key, driver:normalizeName(r.driver), rawPos:idx+1, lap:r.lap, laps:r.laps, gap:r.gap });
     });
