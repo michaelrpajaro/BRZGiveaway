@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Subaru BRZ Giveaway — Spirit Works Garage × SIM1Racing</title>
+<title>Car Giveaways — Spirit Works Garage × SIM1Racing</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800;900&display=swap" rel="stylesheet">
@@ -179,6 +179,38 @@ td.mut,.mut{color:#666;}
 .footer{padding:44px 40px;background:var(--bg2);border-top:1px solid var(--border);text-align:center;}
 .footer .f1{font-family:var(--cond);font-weight:900;text-transform:uppercase;letter-spacing:1px;color:#fff;font-size:1.1em;}
 .footer .f2{font-family:var(--body);font-size:0.8em;color:#555;margin-top:8px;line-height:1.6;}
+.footer-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px;}
+
+/* ── Landing: "Next Up" card on the hero ── */
+.next-card{background:linear-gradient(150deg,#150505,#1a1a1a 60%,#0a0a0a);border:1px solid rgba(239,68,68,0.28);border-radius:16px;padding:40px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:280px;}
+.next-card .next-badge{display:inline-block;background:var(--red);color:#fff;font-family:var(--cond);font-size:0.7em;font-weight:800;letter-spacing:3px;text-transform:uppercase;padding:5px 14px;border-radius:12px;margin-bottom:18px;}
+.next-card .next-ico{font-size:3em;margin-bottom:10px;}
+.next-card .next-t{font-family:var(--body);font-size:1.6em;font-weight:800;color:#fff;margin-bottom:8px;}
+.next-card .next-s{font-family:var(--body);font-size:0.92em;color:#999;line-height:1.55;max-width:280px;}
+
+/* ── Detail hero: back-link ── */
+.back-link{display:inline-block;font-family:var(--body);font-size:0.86em;color:#888;text-decoration:none;font-weight:600;margin-bottom:14px;transition:color .15s;}
+.back-link:hover{color:#fff;}
+
+/* ── Archive grid + cards ── */
+.archive-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;}
+.arch-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s;}
+.arch-card:hover{border-color:var(--red);transform:translateY(-2px);}
+.arch-photo{aspect-ratio:16/10;background:#000;position:relative;overflow:hidden;}
+.arch-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.arch-status{position:absolute;top:10px;left:10px;font-family:var(--body);font-size:0.7em;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:3px 9px;border-radius:5px;}
+.arch-status.done{background:rgba(0,0,0,0.7);color:#bbb;border:1px solid #333;}
+.arch-status.live{background:var(--red);color:#fff;animation:blink 1.4s ease-in-out infinite;}
+.arch-status.soon{background:rgba(96,165,250,0.18);color:var(--blue);border:1px solid rgba(96,165,250,0.4);}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.5}}
+.arch-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:5px;flex:1;}
+.arch-eyebrow{font-family:var(--cond);font-size:0.68em;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--red);}
+.arch-t{font-family:var(--cond);font-size:1.55em;font-weight:900;text-transform:uppercase;color:#fff;line-height:1.05;}
+.arch-s{font-family:var(--body);font-size:0.88em;color:#aaa;}
+.arch-meta{font-family:var(--body);font-size:0.78em;color:#666;margin-top:2px;}
+.arch-stats{display:flex;gap:14px;font-family:var(--body);font-size:0.8em;color:#888;margin-top:10px;padding-top:10px;border-top:1px solid var(--border2);flex-wrap:wrap;}
+.arch-stats b{color:#fff;font-weight:700;}
+.arch-cta{font-family:var(--body);font-size:0.84em;font-weight:700;color:var(--red);margin-top:auto;padding-top:12px;letter-spacing:0.3px;}
 
 @media(max-width:900px){
     .hero-inner,.build-grid{grid-template-columns:1fr;}
@@ -254,6 +286,16 @@ td.mut,.mut{color:#666;}
     #build .mod-h{font-size:0.82em;margin-bottom:8px;padding-bottom:7px;}
     #build .mod-ul{gap:5px;}
     #build .mod-ul li{font-size:0.76em;line-height:1.35;}
+
+    /* Landing extras on mobile */
+    .next-card{padding:24px 18px;min-height:180px;}
+    .next-card .next-t{font-size:1.3em;}
+    .next-card .next-ico{font-size:2.4em;}
+    .archive-grid{grid-template-columns:1fr;gap:12px;}
+    .arch-photo{aspect-ratio:16/9;}
+    .arch-t{font-size:1.3em;}
+    .footer-links{flex-direction:column;}
+    .footer-links .btn{width:100%;text-align:center;}
 }
 </style>
 </head>
@@ -261,34 +303,43 @@ td.mut,.mut{color:#666;}
 
 <!-- ── NAV ── -->
 <nav class="nav"><div class="nav-inner">
-    <div class="nav-brand"><span class="dot"></span> BRZ GIVEAWAY</div>
+    <a href="#" onclick="navHome(event)" class="nav-brand"><span class="dot"></span> CAR GIVEAWAYS</a>
     <div class="nav-links">
-        <a href="#how">How It Works</a>
-        <a href="#prizes">Prizes</a>
-        <a href="#build">The Build</a>
-        <a href="#tracker">Entry Tracker</a>
+        <a href="#how" onclick="navTo(event,'how')">How It Works</a>
+        <a href="#prizes" onclick="navTo(event,'prizes')">Prizes</a>
+        <a href="#archive" onclick="navTo(event,'archive')">Archive</a>
+        <a href="https://www.instagram.com/spiritworks.garage/" target="_blank" rel="noopener">Instagram ↗</a>
     </div>
 </div></nav>
 
-<!-- ── HERO ── -->
+<!-- ════════════════════════════════════════════════════════════════
+     LANDING VIEW — "stay tuned" + how-it-works + prizes + archive
+     ════════════════════════════════════════════════════════════════ -->
+<div id="view-landing">
+
 <header class="hero">
     <div class="hero-glow"></div>
     <div class="hero-inner">
         <div>
             <span class="badge">Spirit Works Garage × SIM1Racing</span>
-            <h1>SUBARU BRZ<br><span class="accent">GIVEAWAY</span></h1>
-            <p>One month. Four tracks. Set your fastest lap, finish in the points, and stack <strong style="color:#ddd;">entries</strong> toward a <strong style="color:#ddd;">supercharged 2013 Subaru BRZ Limited</strong> built by Spirit Works Garage. The more weeks you podium, the bigger your shot.</p>
+            <h1>STAY TUNED FOR<br><span class="accent">THE NEXT GIVEAWAY</span></h1>
+            <p>Spirit Works Garage and SIM1Racing run car giveaways where finishing in the points across four weeks of sim racing earns you <strong style="color:#ddd;">entries</strong> toward winning a real car. The next one is in the works — check the archive below for past results, and follow on Instagram to be the first to hear what's coming.</p>
             <div class="hero-cta">
-                <a href="#tracker" class="btn">VIEW THE TRACKER</a>
-                <a href="#how" class="btn btn-outline">HOW IT WORKS</a>
+                <a href="#archive" onclick="navTo(event,'archive')" class="btn">SEE PAST GIVEAWAYS</a>
+                <a href="https://www.instagram.com/spiritworks.garage/" target="_blank" rel="noopener" class="btn btn-outline">FOLLOW @SPIRITWORKS.GARAGE ↗</a>
             </div>
             <div class="hero-stats">
-                <div class="hero-stat"><div class="v">4</div><div class="l">Weeks</div></div>
-                <div class="hero-stat"><div class="v">15</div><div class="l">Winners / Wk</div></div>
-                <div class="hero-stat"><div class="v">10K</div><div class="l">Top Entries</div></div>
+                <div class="hero-stat"><div class="v">4</div><div class="l">Weeks / Giveaway</div></div>
+                <div class="hero-stat"><div class="v">15+</div><div class="l">Winners / Week</div></div>
+                <div class="hero-stat"><div class="v">10K</div><div class="l">Top Entries / Week</div></div>
             </div>
         </div>
-        <div class="car-photo" id="car-photo"></div>
+        <div class="next-card">
+            <div class="next-badge">NEXT UP</div>
+            <div class="next-ico">🚗</div>
+            <div class="next-t">Car TBA</div>
+            <div class="next-s">Announcement coming soon. Follow on Instagram to be the first to know.</div>
+        </div>
     </div>
 </header>
 
@@ -297,8 +348,8 @@ td.mut,.mut{color:#666;}
     <div class="wrap">
         <div class="center" style="margin-bottom:40px;">
             <div class="eyebrow">THE FORMAT</div>
-            <h2 class="h2">How The Giveaway Works</h2>
-            <p class="lead" style="max-width:760px;margin:14px auto 0;">The car lives at the shop for one month, with a fresh track each week. Post your fastest lap before the week closes — the top finishers earn entries toward the BRZ.</p>
+            <h2 class="h2">How Each Giveaway Works</h2>
+            <p class="lead" style="max-width:760px;margin:14px auto 0;">Every giveaway runs the same way — the rules and prize ladder don't change, just the car. Four weeks, a fresh sim track each week, top finishers earn entries.</p>
         </div>
 
         <div class="week-grid" id="week-cards"></div>
@@ -345,13 +396,54 @@ td.mut,.mut{color:#666;}
     </div>
 </section>
 
+<!-- ── ARCHIVE ── -->
+<section class="section" id="archive" style="background:var(--bg2);">
+    <div class="wrap">
+        <div class="center" style="margin-bottom:36px;">
+            <div class="eyebrow">PAST GIVEAWAYS</div>
+            <h2 class="h2">Archive</h2>
+            <p class="lead" style="max-width:680px;margin:14px auto 0;">Every giveaway is logged here — open one to view the car, the weekly results, the standings, and look up how many entries any driver earned.</p>
+        </div>
+        <div class="archive-grid" id="archive-grid"></div>
+    </div>
+</section>
+
+</div><!-- /#view-landing -->
+
+<!-- ════════════════════════════════════════════════════════════════
+     GIVEAWAY DETAIL VIEW — rendered per selected giveaway
+     ════════════════════════════════════════════════════════════════ -->
+<div id="view-giveaway" style="display:none;">
+
+<header class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+        <div>
+            <a href="#" onclick="navHome(event)" class="back-link">← All Giveaways</a>
+            <span class="badge" id="gv-partner">Spirit Works Garage × SIM1Racing</span>
+            <h1 id="gv-title">Subaru BRZ<br><span class="accent">Giveaway</span></h1>
+            <p id="gv-sub">Loading…</p>
+            <div class="hero-cta">
+                <a href="#tracker" class="btn">VIEW THE TRACKER</a>
+                <a href="" id="gv-rules" target="_blank" rel="noopener" class="btn btn-outline">OFFICIAL RULES ↗</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat"><div class="v" id="gv-stat-weeks">4</div><div class="l">Weeks</div></div>
+                <div class="hero-stat"><div class="v" id="gv-stat-winners">–</div><div class="l">Unique Winners</div></div>
+                <div class="hero-stat"><div class="v" id="gv-stat-entries">–</div><div class="l">Entries Awarded</div></div>
+            </div>
+        </div>
+        <div class="car-photo" id="car-photo"></div>
+    </div>
+</header>
+
 <!-- ── THE BUILD ── -->
 <section class="section" id="build" style="background:var(--bg2);">
     <div class="wrap">
         <div class="center" style="margin-bottom:40px;">
-            <div class="eyebrow">BY SPIRIT WORKS GARAGE</div>
+            <div class="eyebrow" id="build-eyebrow">BY SPIRIT WORKS GARAGE</div>
             <h2 class="h2">The Build</h2>
-            <p class="lead" style="max-width:720px;margin:14px auto 0;">This isn't a stock car. Spirit Works Garage transformed this Subaru BRZ into something special — and one of you is taking it home.</p>
+            <p class="lead" id="build-lead" style="max-width:720px;margin:14px auto 0;">This isn't a stock car. Spirit Works Garage transformed it into something special — and one of you is taking it home.</p>
         </div>
         <div class="build-grid">
             <div class="car-photo" id="build-photo" style="aspect-ratio:4/3;"></div>
@@ -371,9 +463,9 @@ td.mut,.mut{color:#666;}
 <section class="section" id="tracker" style="background:var(--bg);">
     <div class="wrap">
         <div class="center" style="margin-bottom:36px;">
-            <div class="eyebrow">LIVE STANDINGS</div>
+            <div class="eyebrow">FINAL STANDINGS</div>
             <h2 class="h2">Entry Tracker</h2>
-            <p class="lead" style="max-width:720px;margin:14px auto 0;">Enter each week's finishing order and the tracker applies the repeat-winner rules automatically — per-week payouts, running entry totals, and a driver lookup so anyone can see how many entries they've earned.</p>
+            <p class="lead" style="max-width:720px;margin:14px auto 0;">Per-week payouts, running entry totals, and a driver lookup so anyone can see how many entries they earned.</p>
         </div>
 
         <div class="tracker-wrap">
@@ -383,17 +475,8 @@ td.mut,.mut{color:#666;}
                 <button class="tab" data-tab="lookup" onclick="setTab('lookup')">🔍 Driver Lookup</button>
             </div>
 
-            <!-- STANDINGS -->
-            <div class="panel active" id="panel-standings">
-                <div id="standings-out"></div>
-            </div>
-
-            <!-- WEEKLY RESULTS -->
-            <div class="panel" id="panel-weeks">
-                <div id="weeks-out"></div>
-            </div>
-
-            <!-- LOOKUP -->
+            <div class="panel active" id="panel-standings"><div id="standings-out"></div></div>
+            <div class="panel" id="panel-weeks"><div id="weeks-out"></div></div>
             <div class="panel" id="panel-lookup">
                 <div class="lookup-bar">
                     <input id="lookup-input" type="text" placeholder="Enter your driver name…" oninput="renderLookup()">
@@ -405,10 +488,15 @@ td.mut,.mut{color:#666;}
     </div>
 </section>
 
+</div><!-- /#view-giveaway -->
+
 <footer class="footer">
-    <div class="f1">SUBARU BRZ GIVEAWAY</div>
-    <div class="f2">Spirit Works Garage × SIM1Racing · 4 Weeks · May 7 – June 7</div>
-    <a href="https://spiritworksgarage.com/pages/official-rules" target="_blank" rel="noopener" class="btn btn-sm btn-outline" style="margin-top:18px;">VIEW THE OFFICIAL RULES →</a>
+    <div class="f1">CAR GIVEAWAYS</div>
+    <div class="f2">Spirit Works Garage × SIM1Racing</div>
+    <div class="footer-links">
+        <a href="https://www.instagram.com/spiritworks.garage/" target="_blank" rel="noopener" class="btn btn-sm btn-outline">FOLLOW @SPIRITWORKS.GARAGE ↗</a>
+        <a href="https://spiritworksgarage.com/pages/official-rules" target="_blank" rel="noopener" class="btn btn-sm btn-outline">OFFICIAL RULES ↗</a>
+    </div>
 </footer>
 
 <script>
@@ -599,8 +687,85 @@ const WEEKS = [
         { driver:'Thomas McSorley', laps:null, lap:'', gap:'' },
         { driver:'Juan Buitrago', laps:null, lap:'', gap:'' },
     ]},
-    { n:4, dates:'Jun 1 – Jun 7', track:'Silverstone International', results:[] },
+    { n:4, dates:'Jun 1 – Jun 7', track:'Silverstone International', results:[
+        { driver:'Jordan Farrell', laps:21, lap:'1:21.562', gap:'+00.000' },
+        { driver:'Dj Hamilton', laps:19, lap:'1:21.823', gap:'+00.261' },
+        { driver:'Justin Torrente', laps:36, lap:'1:21.993', gap:'+00.431' },
+        { driver:'Shane Cook', laps:31, lap:'1:22.200', gap:'+00.638' },
+        { driver:'Victor Mendez', laps:12, lap:'1:22.721', gap:'+01.159' },
+        { driver:'Snorce Z32', laps:16, lap:'1:22.958', gap:'+01.396' },
+        { driver:'M Moueed Haider Mirza', laps:111, lap:'1:22.967', gap:'+01.405' },
+        { driver:'Chaseton Ennis', laps:45, lap:'1:23.205', gap:'+01.643' },
+        { driver:'Ryan Chang', laps:14, lap:'1:23.218', gap:'+01.656' },
+        { driver:'Gustavo Salty', laps:13, lap:'1:23.322', gap:'+01.760' },
+        { driver:'Jobee Buenaventura', laps:30, lap:'1:23.367', gap:'+01.805' },
+        { driver:'Noah Salgado', laps:27, lap:'1:23.574', gap:'+02.012' },
+        { driver:'Stephanie Egusquiza', laps:59, lap:'1:23.967', gap:'+02.405' },
+        { driver:'Jose Santiago', laps:16, lap:'1:24.139', gap:'+02.577' },
+        { driver:'Noah Salgado', laps:15, lap:'1:24.830', gap:'+03.268' },
+        { driver:'Deolon L', laps:14, lap:'1:25.331', gap:'+03.769' },
+        { driver:'Kamron S', laps:13, lap:'1:25.508', gap:'+03.946' },
+        { driver:'Raul Perez', laps:53, lap:'1:25.664', gap:'+04.102' },
+        { driver:'Felix Lin', laps:10, lap:'1:25.959', gap:'+04.397' },
+        { driver:'Alejandro Torres', laps:12, lap:'1:26.269', gap:'+04.707' },
+        { driver:'Alex Crone', laps:16, lap:'1:27.454', gap:'+05.892' },
+        { driver:'Chaws15 Cha', laps:14, lap:'1:29.072', gap:'+07.510' },
+        { driver:'Matt C', laps:87, lap:'1:29.643', gap:'+08.081' },
+        { driver:'Justin Gonzalez', laps:9, lap:'1:29.979', gap:'+08.417' },
+        { driver:'Abe', laps:12, lap:'1:30.500', gap:'+08.938' },
+        { driver:'Dean Gudehus', laps:5, lap:'1:30.587', gap:'+09.025' },
+        { driver:'Jose Corbo', laps:3, lap:'1:30.631', gap:'+09.069' },
+        { driver:'Gio Cortes', laps:14, lap:'1:31.148', gap:'+09.586' },
+        { driver:'Tal Kaufman', laps:11, lap:'1:31.265', gap:'+09.703' },
+        { driver:'James Lin', laps:3, lap:'1:32.251', gap:'+10.689' },
+        { driver:'Sanetta Ponton', laps:11, lap:'1:32.379', gap:'+10.817' },
+        { driver:'Henry', laps:11, lap:'1:34.517', gap:'+12.955' },
+        { driver:'Matt L', laps:12, lap:'1:36.044', gap:'+14.482' },
+        { driver:'Danny', laps:11, lap:'1:36.096', gap:'+14.534' },
+        { driver:'Desiree F', laps:7, lap:'1:36.858', gap:'+15.296' },
+        { driver:'Jason Izzo', laps:10, lap:'1:40.910', gap:'+19.348' },
+        { driver:'MIchelangelo Artardo', laps:6, lap:'1:41.527', gap:'+19.965' },
+        { driver:'Jefferson Guapizaca', laps:7, lap:'1:42.119', gap:'+20.557' },
+        { driver:'Jordali Aracena', laps:10, lap:'1:42.499', gap:'+20.937' },
+        { driver:'Ian Kaufman', laps:7, lap:'1:42.580', gap:'+21.018' },
+        { driver:'Shaun Lewis', laps:10, lap:'1:43.001', gap:'+21.439' },
+        { driver:'Joe', laps:null, lap:'', gap:'' },
+        { driver:'Veronica', laps:null, lap:'', gap:'' },
+        { driver:'johnathon cheng', laps:null, lap:'', gap:'' },
+        { driver:'Greg Taylor', laps:null, lap:'', gap:'' },
+        { driver:'Mac Peters', laps:null, lap:'', gap:'' },
+        { driver:'Jake Aracena', laps:null, lap:'', gap:'' },
+        { driver:'Mike', laps:null, lap:'', gap:'' },
+        { driver:'Jay Rivera', laps:null, lap:'', gap:'' },
+        { driver:'Marc Jeune', laps:null, lap:'', gap:'' },
+        { driver:'Kara', laps:null, lap:'', gap:'' },
+    ]},
 ];
+
+/* ════════════════════════════════════════════════════════════════
+   GIVEAWAYS ARCHIVE
+   Each completed/active giveaway is an entry below. The landing page
+   shows "stay tuned" + how-it-works + this list. The detail view
+   (#g/<slug>) renders the build, weekly results, and standings.
+   Add a new giveaway by appending another entry — everything else
+   wires up automatically.
+   ════════════════════════════════════════════════════════════════ */
+const GIVEAWAYS = [{
+    slug:      'swg-003-brz',
+    subtitle:  'Subaru BRZ Giveaway',
+    fullName:  'SWG #003 — Supercharged 2013 BRZ Limited',
+    partner:   'Spirit Works Garage × SIM1Racing',
+    period:    'May 7 – June 7, 2026',
+    status:    'completed',
+    carPhoto:  CAR_PHOTO_URL,
+    buildPhoto:BUILD_PHOTO_URL,
+    rulesUrl:  'https://spiritworksgarage.com/pages/official-rules',
+    build:     BUILD,
+    weeks:     WEEKS,
+}];
+
+let CURRENT_G = null;  // null on landing; set by the router on detail views
+
 // 1st win = 100%, 2nd = 50%, 3rd & 4th (and beyond) = 25%
 function multiplierFor(winNumber){
     if (winNumber <= 1) return 1;
@@ -692,15 +857,17 @@ function computeWeek(results, priorWins){
     return winners;
 }
 
-function computeAll(){
+function computeAll(giveaway){
+    const g = giveaway || CURRENT_G;
+    if(!g) return { weekResults: [], totals: {} };
     const priorWins = {};
     const weekResults = [];
     const totals = {}; // key -> { name, total, perWeek:[..] }
-    WEEKS.forEach((w, wi) => {
+    g.weeks.forEach((w, wi) => {
         const winners = computeWeek(w.results || [], priorWins);
         winners.forEach(x => {
             priorWins[x.key] = (priorWins[x.key]||0) + 1;
-            if(!totals[x.key]) totals[x.key] = { name:x.driver, total:0, perWeek:[0,0,0,0] };
+            if(!totals[x.key]) totals[x.key] = { name:x.driver, total:0, perWeek:new Array(g.weeks.length).fill(0) };
             totals[x.key].total += x.entries;
             totals[x.key].perWeek[wi] += x.entries;
         });
@@ -719,20 +886,28 @@ function photoPlaceholder(icon, title, sub){
         <div class="ph-s">${sub}</div></div>`;
 }
 function renderPhotos(){
-    document.getElementById('car-photo').innerHTML = CAR_PHOTO_URL
-        ? `<img src="${CAR_PHOTO_URL}" alt="Subaru BRZ Giveaway car">`
-        : photoPlaceholder('🚗','Car Photo','Drop the Subaru BRZ hero shot into CAR_PHOTO_URL at the top of the script.');
-    document.getElementById('build-photo').innerHTML = BUILD_PHOTO_URL
-        ? `<img src="${BUILD_PHOTO_URL}" alt="Spirit Works Garage build">`
-        : photoPlaceholder('📸','Build Photo','Set BUILD_PHOTO_URL to show a detail / engine-bay shot here.');
+    const g = CURRENT_G; if(!g) return;
+    document.getElementById('car-photo').innerHTML = g.carPhoto
+        ? `<img src="${g.carPhoto}" alt="${g.subtitle}">`
+        : photoPlaceholder('🚗','Car Photo','');
+    document.getElementById('build-photo').innerHTML = g.buildPhoto
+        ? `<img src="${g.buildPhoto}" alt="${g.subtitle} build">`
+        : photoPlaceholder('📸','Build Photo','');
 }
+// Landing's How-It-Works cards — generic, not tied to a specific giveaway
 function renderWeekCards(){
-    document.getElementById('week-cards').innerHTML = WEEKS.map(w => `
+    const blurbs = [
+        'Set your fastest lap',
+        'Fresh sim track',
+        'Top 15 earn entries',
+        'Final week of the month',
+    ];
+    document.getElementById('week-cards').innerHTML = [1,2,3,4].map((n,i) => `
         <div class="week-card"><div class="bar"></div>
-            <div class="wk">Week ${w.n}</div>
-            <div class="dt">${w.dates}</div>
+            <div class="wk">Week ${n}</div>
+            <div class="dt">${blurbs[i]}</div>
             <div class="meta">New winners each week</div>
-            <div class="trk">${w.track || 'Track TBA'}</div>
+            <div class="trk">100% / 50% / 25% scale</div>
         </div>`).join('');
 }
 function renderLadder(){
@@ -745,11 +920,13 @@ function renderLadder(){
         </div>`).join('');
 }
 function renderBuild(){
+    const g = CURRENT_G; if(!g || !g.build) return;
     document.getElementById('build-head').innerHTML =
-        `<div class="t">${BUILD.title}</div><div class="st">${BUILD.subtitle}</div>`;
-    document.getElementById('build-facts').textContent = BUILD.facts;
+        `<div class="t">${g.build.title}</div><div class="st">${g.build.subtitle}</div>`;
+    document.getElementById('build-facts').textContent = g.build.facts;
     document.getElementById('build-highlights').innerHTML =
-        BUILD.highlights.map(h => `<li>${h}</li>`).join('');
+        g.build.highlights.map(h => `<li>${h}</li>`).join('');
+    document.getElementById('build-eyebrow').textContent = 'BY ' + (g.partner||'').split('×')[0].trim().toUpperCase();
 }
 
 /* ════════════════════════════════════════════════════════════════
@@ -772,7 +949,7 @@ function posCell(pos){
 }
 
 function renderWeeks(data){
-    const out = WEEKS.map((w,wi) => {
+    const out = (CURRENT_G ? CURRENT_G.weeks : []).map((w,wi) => {
         const winners = data.weekResults[wi];
         const results = w.results || [];
         if(!results.length){
@@ -902,7 +1079,7 @@ function renderLookup(){
     el.innerHTML = matches.sort((a,b)=>b.total-a.total).map(d => {
         const wkRows = d.perWeek.map((v,wi)=>`
             <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border2);">
-                <span style="font-family:var(--body);font-weight:700;color:${v?'#fff':'#555'};font-size:0.95em;">Week ${wi+1}<span style="font-family:var(--body);font-weight:400;color:#666;font-size:0.85em;margin-left:8px;">${WEEKS[wi].track||'TBA'}</span></span>
+                <span style="font-family:var(--body);font-weight:700;color:${v?'#fff':'#555'};font-size:0.95em;">Week ${wi+1}<span style="font-family:var(--body);font-weight:400;color:#666;font-size:0.85em;margin-left:8px;">${(CURRENT_G&&CURRENT_G.weeks[wi])?(CURRENT_G.weeks[wi].track||'TBA'):'TBA'}</span></span>
                 <span style="font-family:var(--body);font-weight:800;font-size:1em;color:${v?'var(--red)':'#555'};">${v?fmt(v):'—'}</span>
             </div>`).join('');
         return `<div class="driver-card" style="margin-bottom:14px;">
@@ -917,10 +1094,10 @@ function renderLookup(){
    ORCHESTRATION
    ════════════════════════════════════════════════════════════════ */
 function recompute(){
+    if(!CURRENT_G) return;
     const data = computeAll();
     renderStandings(data);
     renderWeeks(data);
-    renderWeekCards();
     if(document.getElementById('panel-lookup').classList.contains('active')) renderLookup();
 }
 function setTab(tab){
@@ -930,11 +1107,97 @@ function setTab(tab){
     if(tab==='lookup') renderLookup();
 }
 
+/* ════════════════════════════════════════════════════════════════
+   ROUTER + LANDING/ARCHIVE
+   ════════════════════════════════════════════════════════════════ */
+function navHome(e){ if(e) e.preventDefault(); if(location.hash){ history.pushState('', '', location.pathname + location.search); } route(); }
+function navTo(e, id){
+    // If we're on a detail view, go back to landing first then scroll
+    if(CURRENT_G){
+        e.preventDefault();
+        history.pushState('', '', location.pathname + location.search + '#' + id);
+        route();
+        setTimeout(()=>{ const el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }, 30);
+    }
+    // otherwise let the anchor scroll naturally
+}
+
+function renderArchive(){
+    const html = GIVEAWAYS.slice().reverse().map(g => {  // newest first
+        const data = computeAll(g);
+        const winners = Object.keys(data.totals).length;
+        const totalEntries = Object.values(data.totals).reduce((s,d)=>s+d.total,0);
+        const statusBadge = g.status==='active'   ? '<span class="arch-status live">LIVE</span>'
+                          : g.status==='upcoming' ? '<span class="arch-status soon">UPCOMING</span>'
+                          : '<span class="arch-status done">COMPLETED</span>';
+        return `<a class="arch-card" href="#g/${g.slug}">
+            <div class="arch-photo">${g.carPhoto ? `<img src="${g.carPhoto}" alt="${g.subtitle}">` : ''}${statusBadge}</div>
+            <div class="arch-body">
+                <div class="arch-eyebrow">${g.partner}</div>
+                <div class="arch-t">${g.subtitle}</div>
+                <div class="arch-s">${g.fullName}</div>
+                <div class="arch-meta">${g.period}</div>
+                <div class="arch-stats">
+                    <span><b>${winners}</b> winners</span>
+                    <span><b>${fmt(totalEntries)}</b> entries</span>
+                    <span><b>${g.weeks.length}</b> weeks</span>
+                </div>
+                <div class="arch-cta">VIEW STANDINGS →</div>
+            </div>
+        </a>`;
+    }).join('');
+    document.getElementById('archive-grid').innerHTML = html
+        || `<div class="empty-state"><div class="e1">No giveaways yet</div><div class="e2">The first one will appear here once it wraps.</div></div>`;
+}
+
+function renderGiveawayHero(g){
+    document.getElementById('gv-partner').textContent = g.partner;
+    document.getElementById('gv-title').innerHTML = g.subtitle.replace(/(Giveaway)$/i, '<br><span class="accent">$1</span>');
+    document.getElementById('gv-sub').textContent  = g.fullName + ' · ' + g.period;
+    const rulesEl = document.getElementById('gv-rules');
+    if(g.rulesUrl){ rulesEl.href = g.rulesUrl; rulesEl.style.display = ''; }
+    else rulesEl.style.display = 'none';
+    document.getElementById('gv-stat-weeks').textContent = g.weeks.length;
+    const data = computeAll(g);
+    document.getElementById('gv-stat-winners').textContent = Object.keys(data.totals).length;
+    document.getElementById('gv-stat-entries').textContent = fmt(Object.values(data.totals).reduce((s,d)=>s+d.total,0));
+}
+
+function showLanding(){
+    CURRENT_G = null;
+    document.getElementById('view-landing').style.display = '';
+    document.getElementById('view-giveaway').style.display = 'none';
+    document.title = 'Car Giveaways — Spirit Works Garage × SIM1Racing';
+    renderArchive();
+}
+
+function showGiveaway(g){
+    CURRENT_G = g;
+    document.getElementById('view-landing').style.display = 'none';
+    document.getElementById('view-giveaway').style.display = '';
+    document.title = g.subtitle + ' — ' + g.partner;
+    renderGiveawayHero(g);
+    renderPhotos();
+    renderBuild();
+    recompute();
+    setTab('standings');
+    window.scrollTo(0, 0);
+}
+
+function route(){
+    const m = (location.hash||'').match(/^#g\/(.+)$/);
+    if(m){
+        const g = GIVEAWAYS.find(x => x.slug === m[1]);
+        if(g){ showGiveaway(g); return; }
+    }
+    showLanding();
+}
+window.addEventListener('hashchange', route);
+
 /* INIT */
-renderPhotos();
+renderWeekCards();   // generic landing how-it-works cards
 renderLadder();
-renderBuild();
-recompute();
+route();             // shows landing or detail based on the URL hash
 </script>
 </body>
 </html>
