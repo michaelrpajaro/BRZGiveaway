@@ -69,6 +69,7 @@ h1,h2,h3{margin:0;}
 
 /* ── WEEK CARDS ── */
 .week-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+#how .week-grid{grid-template-columns:repeat(3,1fr);}
 .week-card{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:26px 24px;position:relative;overflow:hidden;}
 .week-card .bar{position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);}
 .week-card .wk{font-family:var(--cond);font-size:0.95em;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--red);}
@@ -254,7 +255,7 @@ td.mut,.mut{color:#666;}
     #how>.wrap>.center,#prizes>.wrap-md>.center,#build>.wrap>.center{margin-bottom:14px!important;}
 
     /* How it works — 2x2 cards + compact note */
-    #how .week-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
+    #how .week-grid{grid-template-columns:1fr;gap:8px;}
     #how .week-card{padding:14px 12px;}
     #how .week-card .wk{font-size:0.8em;}
     #how .week-card .dt{font-size:1em;margin:6px 0 3px;}
@@ -896,18 +897,16 @@ function renderPhotos(){
 }
 // Landing's How-It-Works cards — generic, not tied to a specific giveaway
 function renderWeekCards(){
-    const blurbs = [
-        'Set your fastest lap',
-        'Fresh sim track',
-        'Top 15 earn entries',
-        'Final week of the month',
+    const cards = [
+        { lbl:'📅 FORMAT',  t:'Four-Week Series',    d:'Each giveaway runs over four weekly rounds — one month of sim racing for a real car.' },
+        { lbl:'🏁 WEEKLY',  t:'New Track Each Week', d:'A different sim track is set every week. Post your fastest lap before the week closes.' },
+        { lbl:'🏆 WINNERS', t:'Top 15 Earn Entries', d:'Finish in the top 15 each week to claim entries — the giveaway\'s currency toward the car.' },
     ];
-    document.getElementById('week-cards').innerHTML = [1,2,3,4].map((n,i) => `
+    document.getElementById('week-cards').innerHTML = cards.map(c => `
         <div class="week-card"><div class="bar"></div>
-            <div class="wk">Week ${n}</div>
-            <div class="dt">${blurbs[i]}</div>
-            <div class="meta">New winners each week</div>
-            <div class="trk">100% / 50% / 25% scale</div>
+            <div class="wk">${c.lbl}</div>
+            <div class="dt">${c.t}</div>
+            <div class="trk">${c.d}</div>
         </div>`).join('');
 }
 function renderLadder(){
